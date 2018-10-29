@@ -1220,44 +1220,44 @@ namespace Lasallistas.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c004b
-			public const int abc_background_cache_hint_selector_material_dark = 2131492939;
-			
-			// aapt resource value: 0x7f0c004c
-			public const int abc_background_cache_hint_selector_material_light = 2131492940;
-			
-			// aapt resource value: 0x7f0c004d
-			public const int abc_btn_colored_borderless_text_material = 2131492941;
-			
-			// aapt resource value: 0x7f0c004e
-			public const int abc_btn_colored_text_material = 2131492942;
-			
-			// aapt resource value: 0x7f0c004f
-			public const int abc_color_highlight_material = 2131492943;
-			
 			// aapt resource value: 0x7f0c0050
-			public const int abc_hint_foreground_material_dark = 2131492944;
+			public const int abc_background_cache_hint_selector_material_dark = 2131492944;
 			
 			// aapt resource value: 0x7f0c0051
-			public const int abc_hint_foreground_material_light = 2131492945;
+			public const int abc_background_cache_hint_selector_material_light = 2131492945;
+			
+			// aapt resource value: 0x7f0c0052
+			public const int abc_btn_colored_borderless_text_material = 2131492946;
+			
+			// aapt resource value: 0x7f0c0053
+			public const int abc_btn_colored_text_material = 2131492947;
+			
+			// aapt resource value: 0x7f0c0054
+			public const int abc_color_highlight_material = 2131492948;
+			
+			// aapt resource value: 0x7f0c0055
+			public const int abc_hint_foreground_material_dark = 2131492949;
+			
+			// aapt resource value: 0x7f0c0056
+			public const int abc_hint_foreground_material_light = 2131492950;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int abc_input_method_navigation_guard = 2131492868;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int abc_primary_text_disable_only_material_dark = 2131492946;
+			// aapt resource value: 0x7f0c0057
+			public const int abc_primary_text_disable_only_material_dark = 2131492951;
 			
-			// aapt resource value: 0x7f0c0053
-			public const int abc_primary_text_disable_only_material_light = 2131492947;
+			// aapt resource value: 0x7f0c0058
+			public const int abc_primary_text_disable_only_material_light = 2131492952;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int abc_primary_text_material_dark = 2131492948;
+			// aapt resource value: 0x7f0c0059
+			public const int abc_primary_text_material_dark = 2131492953;
 			
-			// aapt resource value: 0x7f0c0055
-			public const int abc_primary_text_material_light = 2131492949;
+			// aapt resource value: 0x7f0c005a
+			public const int abc_primary_text_material_light = 2131492954;
 			
-			// aapt resource value: 0x7f0c0056
-			public const int abc_search_url_text = 2131492950;
+			// aapt resource value: 0x7f0c005b
+			public const int abc_search_url_text = 2131492955;
 			
 			// aapt resource value: 0x7f0c0005
 			public const int abc_search_url_text_normal = 2131492869;
@@ -1268,29 +1268,29 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0c0007
 			public const int abc_search_url_text_selected = 2131492871;
 			
-			// aapt resource value: 0x7f0c0057
-			public const int abc_secondary_text_material_dark = 2131492951;
-			
-			// aapt resource value: 0x7f0c0058
-			public const int abc_secondary_text_material_light = 2131492952;
-			
-			// aapt resource value: 0x7f0c0059
-			public const int abc_tint_btn_checkable = 2131492953;
-			
-			// aapt resource value: 0x7f0c005a
-			public const int abc_tint_default = 2131492954;
-			
-			// aapt resource value: 0x7f0c005b
-			public const int abc_tint_edittext = 2131492955;
-			
 			// aapt resource value: 0x7f0c005c
-			public const int abc_tint_seek_thumb = 2131492956;
+			public const int abc_secondary_text_material_dark = 2131492956;
 			
 			// aapt resource value: 0x7f0c005d
-			public const int abc_tint_spinner = 2131492957;
+			public const int abc_secondary_text_material_light = 2131492957;
 			
 			// aapt resource value: 0x7f0c005e
-			public const int abc_tint_switch_track = 2131492958;
+			public const int abc_tint_btn_checkable = 2131492958;
+			
+			// aapt resource value: 0x7f0c005f
+			public const int abc_tint_default = 2131492959;
+			
+			// aapt resource value: 0x7f0c0060
+			public const int abc_tint_edittext = 2131492960;
+			
+			// aapt resource value: 0x7f0c0061
+			public const int abc_tint_seek_thumb = 2131492961;
+			
+			// aapt resource value: 0x7f0c0062
+			public const int abc_tint_spinner = 2131492962;
+			
+			// aapt resource value: 0x7f0c0063
+			public const int abc_tint_switch_track = 2131492963;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int accent_material_dark = 2131492872;
@@ -1349,8 +1349,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0c0040
 			public const int design_bottom_navigation_shadow_color = 2131492928;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int design_error = 2131492959;
+			// aapt resource value: 0x7f0c0064
+			public const int design_error = 2131492964;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int design_fab_shadow_end_color = 2131492929;
@@ -1376,8 +1376,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int design_snackbar_background_color = 2131492936;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int design_tint_password_toggle = 2131492960;
+			// aapt resource value: 0x7f0c0065
+			public const int design_tint_password_toggle = 2131492965;
 			
 			// aapt resource value: 0x7f0c0016
 			public const int dim_foreground_disabled_material_dark = 2131492886;
@@ -1442,6 +1442,21 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0c002a
 			public const int material_grey_900 = 2131492906;
 			
+			// aapt resource value: 0x7f0c004b
+			public const int menubusqueda = 2131492939;
+			
+			// aapt resource value: 0x7f0c004e
+			public const int menufavoritos = 2131492942;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int menuhistorial = 2131492941;
+			
+			// aapt resource value: 0x7f0c004f
+			public const int menuperfil = 2131492943;
+			
+			// aapt resource value: 0x7f0c004c
+			public const int menureservaciones = 2131492940;
+			
 			// aapt resource value: 0x7f0c0049
 			public const int notification_action_color_filter = 2131492937;
 			
@@ -1499,11 +1514,11 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0c003a
 			public const int switch_thumb_disabled_material_light = 2131492922;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int switch_thumb_material_dark = 2131492961;
+			// aapt resource value: 0x7f0c0066
+			public const int switch_thumb_material_dark = 2131492966;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int switch_thumb_material_light = 2131492962;
+			// aapt resource value: 0x7f0c0067
+			public const int switch_thumb_material_light = 2131492967;
 			
 			// aapt resource value: 0x7f0c003b
 			public const int switch_thumb_normal_material_dark = 2131492923;
@@ -2269,26 +2284,26 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006a
-			public const int avd_hide_password_1 = 2130837610;
-			
-			// aapt resource value: 0x7f02006b
-			public const int avd_hide_password_2 = 2130837611;
-			
 			// aapt resource value: 0x7f02006c
-			public const int avd_hide_password_3 = 2130837612;
+			public const int avd_hide_password_1 = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int avd_hide_password_2 = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int avd_hide_password_3 = 2130837614;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02006d
-			public const int avd_show_password_1 = 2130837613;
-			
-			// aapt resource value: 0x7f02006e
-			public const int avd_show_password_2 = 2130837614;
-			
 			// aapt resource value: 0x7f02006f
-			public const int avd_show_password_3 = 2130837615;
+			public const int avd_show_password_1 = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int avd_show_password_2 = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int avd_show_password_3 = 2130837617;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2309,49 +2324,55 @@ namespace Lasallistas.Droid
 			public const int design_snackbar_background = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int navigation_empty_icon = 2130837595;
+			public const int home = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int notification_action_background = 2130837596;
+			public const int navigation_empty_icon = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int notification_bg = 2130837597;
+			public const int navigation_item = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int notification_bg_low = 2130837598;
+			public const int notification_action_background = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int notification_bg_low_normal = 2130837599;
+			public const int notification_bg = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int notification_bg_low_pressed = 2130837600;
+			public const int notification_bg_low = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int notification_bg_normal = 2130837601;
+			public const int notification_bg_low_normal = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int notification_bg_normal_pressed = 2130837602;
+			public const int notification_bg_low_pressed = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_icon_background = 2130837603;
-			
-			// aapt resource value: 0x7f020068
-			public const int notification_template_icon_bg = 2130837608;
-			
-			// aapt resource value: 0x7f020069
-			public const int notification_template_icon_low_bg = 2130837609;
+			public const int notification_bg_normal = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_tile_bg = 2130837604;
+			public const int notification_bg_normal_pressed = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notify_panel_notification_icon_bg = 2130837605;
+			public const int notification_icon_background = 2130837605;
+			
+			// aapt resource value: 0x7f02006a
+			public const int notification_template_icon_bg = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int notification_template_icon_low_bg = 2130837611;
 			
 			// aapt resource value: 0x7f020066
-			public const int tooltip_frame_dark = 2130837606;
+			public const int notification_tile_bg = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int tooltip_frame_light = 2130837607;
+			public const int notify_panel_notification_icon_bg = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int tooltip_frame_dark = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int tooltip_frame_light = 2130837609;
 			
 			static Drawable()
 			{
@@ -2385,7 +2406,10 @@ namespace Lasallistas.Droid
 			public const int SYM = 2131361847;
 			
 			// aapt resource value: 0x7f0a009d
-			public const int action0 = 2131361949;
+			public const int TabContent = 2131361949;
+			
+			// aapt resource value: 0x7f0a00a2
+			public const int action0 = 2131361954;
 			
 			// aapt resource value: 0x7f0a007c
 			public const int action_bar = 2131361916;
@@ -2408,17 +2432,17 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a005a
 			public const int action_bar_title = 2131361882;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int action_container = 2131361946;
+			// aapt resource value: 0x7f0a009f
+			public const int action_container = 2131361951;
 			
 			// aapt resource value: 0x7f0a007d
 			public const int action_context_bar = 2131361917;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int action_divider = 2131361953;
+			// aapt resource value: 0x7f0a00a6
+			public const int action_divider = 2131361958;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int action_image = 2131361947;
+			// aapt resource value: 0x7f0a00a0
+			public const int action_image = 2131361952;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -2435,11 +2459,11 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a005c
 			public const int action_mode_close_button = 2131361884;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int action_text = 2131361948;
+			// aapt resource value: 0x7f0a00a1
+			public const int action_text = 2131361953;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int actions = 2131361962;
+			// aapt resource value: 0x7f0a00af
+			public const int actions = 2131361967;
 			
 			// aapt resource value: 0x7f0a005d
 			public const int activity_chooser_view_content = 2131361885;
@@ -2456,6 +2480,9 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0038
 			public const int always = 2131361848;
 			
+			// aapt resource value: 0x7f0a009a
+			public const int appBarHome = 2131361946;
+			
 			// aapt resource value: 0x7f0a0056
 			public const int async = 2131361878;
 			
@@ -2471,11 +2498,14 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a003d
 			public const int bottom = 2131361853;
 			
+			// aapt resource value: 0x7f0a009e
+			public const int bottomNavigation = 2131361950;
+			
 			// aapt resource value: 0x7f0a0063
 			public const int buttonPanel = 2131361891;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int cancel_action = 2131361950;
+			// aapt resource value: 0x7f0a00a3
+			public const int cancel_action = 2131361955;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int center = 2131361861;
@@ -2489,8 +2519,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0073
 			public const int checkbox = 2131361907;
 			
-			// aapt resource value: 0x7f0a00a6
-			public const int chronometer = 2131361958;
+			// aapt resource value: 0x7f0a00ab
+			public const int chronometer = 2131361963;
 			
 			// aapt resource value: 0x7f0a004e
 			public const int clip_horizontal = 2131361870;
@@ -2509,6 +2539,9 @@ namespace Lasallistas.Droid
 			
 			// aapt resource value: 0x7f0a008e
 			public const int coordinator = 2131361934;
+			
+			// aapt resource value: 0x7f0a0099
+			public const int coordinatorHome = 2131361945;
 			
 			// aapt resource value: 0x7f0a006d
 			public const int custom = 2131361901;
@@ -2546,8 +2579,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0030
 			public const int end = 2131361840;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int end_padder = 2131361964;
+			// aapt resource value: 0x7f0a00b1
+			public const int end_padder = 2131361969;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int enterAlways = 2131361855;
@@ -2591,8 +2624,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0062
 			public const int icon = 2131361890;
 			
-			// aapt resource value: 0x7f0a00ab
-			public const int icon_group = 2131361963;
+			// aapt resource value: 0x7f0a00b0
+			public const int icon_group = 2131361968;
 			
 			// aapt resource value: 0x7f0a003a
 			public const int ifRoom = 2131361850;
@@ -2600,8 +2633,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a005f
 			public const int image = 2131361887;
 			
-			// aapt resource value: 0x7f0a00a7
-			public const int info = 2131361959;
+			// aapt resource value: 0x7f0a00ac
+			public const int info = 2131361964;
 			
 			// aapt resource value: 0x7f0a0059
 			public const int italic = 2131361881;
@@ -2627,14 +2660,29 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0061
 			public const int list_item = 2131361889;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int masked = 2131361967;
+			// aapt resource value: 0x7f0a00b4
+			public const int masked = 2131361972;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int media_actions = 2131361952;
+			// aapt resource value: 0x7f0a00a5
+			public const int media_actions = 2131361957;
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int message = 2131361965;
+			// aapt resource value: 0x7f0a00b5
+			public const int menubusqueda = 2131361973;
+			
+			// aapt resource value: 0x7f0a00b8
+			public const int menufavoritos = 2131361976;
+			
+			// aapt resource value: 0x7f0a00b7
+			public const int menuhistorial = 2131361975;
+			
+			// aapt resource value: 0x7f0a00b9
+			public const int menuperfil = 2131361977;
+			
+			// aapt resource value: 0x7f0a00b6
+			public const int menureservaciones = 2131361974;
+			
+			// aapt resource value: 0x7f0a00b2
+			public const int message = 2131361970;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int middle = 2131361841;
@@ -2644,9 +2692,6 @@ namespace Lasallistas.Droid
 			
 			// aapt resource value: 0x7f0a0028
 			public const int multiply = 2131361832;
-			
-			// aapt resource value: 0x7f0a0099
-			public const int myButton = 2131361945;
 			
 			// aapt resource value: 0x7f0a0093
 			public const int navigation_header_container = 2131361939;
@@ -2660,14 +2705,14 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a001e
 			public const int normal = 2131361822;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int notification_background = 2131361961;
+			// aapt resource value: 0x7f0a00ae
+			public const int notification_background = 2131361966;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int notification_main_column = 2131361955;
+			// aapt resource value: 0x7f0a00a8
+			public const int notification_main_column = 2131361960;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int notification_main_column_container = 2131361954;
+			// aapt resource value: 0x7f0a00a7
+			public const int notification_main_column_container = 2131361959;
 			
 			// aapt resource value: 0x7f0a004c
 			public const int parallax = 2131361868;
@@ -2693,11 +2738,11 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a004a
 			public const int right = 2131361866;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int right_icon = 2131361960;
+			// aapt resource value: 0x7f0a00ad
+			public const int right_icon = 2131361965;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int right_side = 2131361956;
+			// aapt resource value: 0x7f0a00a9
+			public const int right_side = 2131361961;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int save_image_matrix = 2131361804;
@@ -2801,8 +2846,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a004b
 			public const int start = 2131361867;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int status_bar_latest_event_content = 2131361951;
+			// aapt resource value: 0x7f0a00a4
+			public const int status_bar_latest_event_content = 2131361956;
 			
 			// aapt resource value: 0x7f0a0076
 			public const int submenuarrow = 2131361910;
@@ -2812,6 +2857,9 @@ namespace Lasallistas.Droid
 			
 			// aapt resource value: 0x7f0a001f
 			public const int tabMode = 2131361823;
+			
+			// aapt resource value: 0x7f0a009c
+			public const int tabsHome = 2131361948;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int tag_transition_group = 2131361817;
@@ -2837,8 +2885,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0015
 			public const int textinput_error = 2131361813;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int time = 2131361957;
+			// aapt resource value: 0x7f0a00aa
+			public const int time = 2131361962;
 			
 			// aapt resource value: 0x7f0a001c
 			public const int title = 2131361820;
@@ -2848,6 +2896,9 @@ namespace Lasallistas.Droid
 			
 			// aapt resource value: 0x7f0a006f
 			public const int title_template = 2131361903;
+			
+			// aapt resource value: 0x7f0a009b
+			public const int toolBarHome = 2131361947;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int top = 2131361854;
@@ -2885,8 +2936,8 @@ namespace Lasallistas.Droid
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int visible = 2131361966;
+			// aapt resource value: 0x7f0a00b3
+			public const int visible = 2131361971;
 			
 			// aapt resource value: 0x7f0a003c
 			public const int withText = 2131361852;
@@ -3083,70 +3134,73 @@ namespace Lasallistas.Droid
 			public const int fragment_map = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int Main = 2130968619;
+			public const int fragment_medals = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int notification_action = 2130968620;
+			public const int Main = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_action_tombstone = 2130968621;
+			public const int notification_action = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_media_action = 2130968622;
+			public const int notification_action_tombstone = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_media_cancel_action = 2130968623;
+			public const int notification_media_action = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_template_big_media = 2130968624;
+			public const int notification_media_cancel_action = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_template_big_media_custom = 2130968625;
+			public const int notification_template_big_media = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_template_big_media_narrow = 2130968626;
+			public const int notification_template_big_media_custom = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int notification_template_big_media_narrow_custom = 2130968627;
+			public const int notification_template_big_media_narrow = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_template_custom_big = 2130968628;
+			public const int notification_template_big_media_narrow_custom = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_template_icon_group = 2130968629;
+			public const int notification_template_custom_big = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_template_lines_media = 2130968630;
+			public const int notification_template_icon_group = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_media = 2130968631;
+			public const int notification_template_lines_media = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_media_custom = 2130968632;
+			public const int notification_template_media = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_part_chronometer = 2130968633;
+			public const int notification_template_media_custom = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_part_time = 2130968634;
+			public const int notification_template_part_chronometer = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int Second = 2130968635;
+			public const int notification_template_part_time = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_item_material = 2130968636;
+			public const int Second = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int select_dialog_multichoice_material = 2130968637;
+			public const int select_dialog_item_material = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_singlechoice_material = 2130968638;
+			public const int select_dialog_multichoice_material = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int support_simple_spinner_dropdown_item = 2130968639;
+			public const int select_dialog_singlechoice_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int tooltip = 2130968640;
+			public const int support_simple_spinner_dropdown_item = 2130968640;
+			
+			// aapt resource value: 0x7f040041
+			public const int tooltip = 2130968641;
 			
 			static Layout()
 			{
@@ -3154,6 +3208,22 @@ namespace Lasallistas.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0e0000
+			public const int menuPrincipal = 2131623936;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

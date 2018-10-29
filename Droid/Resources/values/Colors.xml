@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="menubusqueda">#1B5E20</color>
+  <color name="menureservaciones">#2E7D32</color>
+  <color name="menuhistorial">#388E3C</color>
+  <color name="menufavoritos">#43A047</color>
+  <color name="menuperfil">#4CAF50</color>
+</resources>

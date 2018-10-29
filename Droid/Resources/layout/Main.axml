@@ -1,4 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
-    <Button android:id="@+id/myButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/hello" />
-</LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
+    <!-- SI android:theme ES LIGHT EL TEXTO DE LAS TABS ES NEGRO, SI ES DARK, EL TEXTO ES BLANCO -->
+    <!-- android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" -->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBarHome"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <!-- SI android:theme ES DARK EL TEXTO DE BARRA PRINCIPAL SALE BLANCO, SI ES LIGHT, EL TEXTO ES NEGRO -->
+    <!-- android:background="?attr/colorPrimary" -->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabsHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.AppBarLayout>
+<!--CONTENIDO >>> -->
+    <FrameLayout
+        android:id="@+id/TabContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/design_bottom_navigation_height" />
+<!--<<< CONTENIDO-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/menubusqueda"
+        app:itemIconTint="@drawable/navigation_item"
+        app:itemTextColor="@drawable/navigation_item"
+        app:menu="@menu/menuprincipal" />
+</android.support.design.widget.CoordinatorLayout>
