@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ChooseSportScreen from './chooseSportScreen';
+import ResultScreen from './resultScreen';
+
 
 // This example shows how to render two different screens
 // (or the same screen in a different context) at the same url,
@@ -51,7 +54,8 @@ class ModalSwitch extends React.Component {
         <Switch location={isModal ? this.previousLocation : location}>
           <Route exact path="/" component={Home} />
           <Route path="/gallery" component={Gallery} />
-          <Route path="/img/:id" component={ImageView} />
+          <Route path="/choose" component={ChooseSportScreen} />
+          <Route path="/resultado" component={ResultScreen} />
         </Switch>
         {isModal ? <Route path="/img/:id" component={Modal} /> : null}
       </div>
@@ -101,7 +105,10 @@ function Home() {
           <Link to="/img/2">Tomato</Link>
         </li>
         <li>
-          <Link to="/img/4">Crimson</Link>
+          <Link to="/choose">Crimson</Link>
+        </li>
+        <li>
+          <Link to="/resultado">Resultados</Link>
         </li>
       </ul>
     </div>
