@@ -7,8 +7,6 @@ class HomeScreen extends Component {
   render() {
     return (
       <div classNameName="App" style={{backgroundImage: "url( ../images/campusFiltered.jpg)",height:950}}>
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <div className="card-deck">
         <div className="card"  style={{margin:35}}>
             <img className="card-img-top" src="../images/calendar.png" alt="Card image cap"/>
