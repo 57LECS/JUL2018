@@ -120,7 +120,8 @@ class ChooseSportScreen extends React.Component {
             </a>
           </Col>
         </Row>
-        <br />
+        <br /><br /><br /><br />
+
       </Container>
     );
   }

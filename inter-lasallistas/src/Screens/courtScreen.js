@@ -7,9 +7,11 @@ class CourtScreen extends React.Component {
 
   render() {
     return (
+      <Container>
         <Alert color="success">
-        Bienvenido a Canchas
-      </Alert>
+          Bienvenido a Canchas
+        </Alert>
+      </Container>
     );
   }
 

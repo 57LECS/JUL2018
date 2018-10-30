@@ -8,7 +8,7 @@ class CalendarScreen extends React.Component {
     return (
       <Container>
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossOrigin="anonymous"></link>
 
         <Row>
           <Col sm="6">
@@ -22,7 +22,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Cuernavaca</td>
-                    <td className="text-center"><i class="far fa-futbol"></i></td>
+                    <td className="text-center"><i className="far fa-futbol"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -30,7 +30,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Victoria</td>
-                    <td className="text-center"><i class="fas fa-basketball-ball"></i></td>
+                    <td className="text-center"><i className="fas fa-basketball-ball"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -38,7 +38,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Laguna</td>
-                    <td className="text-center"><i class="fas fa-volleyball-ball"></i></td>
+                    <td className="text-center"><i className="fas fa-volleyball-ball"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -46,7 +46,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Laguna</td>
-                    <td className="text-center"><i class="fas fa-chess-rook"></i></td>
+                    <td className="text-center"><i className="fas fa-chess-rook"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -54,7 +54,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Morelia</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -62,7 +62,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Cancún</td>
-                    <td className="text-center"><i class="far fa-futbol"></i></td>
+                    <td className="text-center"><i className="far fa-futbol"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -70,7 +70,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Saltillo</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -78,7 +78,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Bajío</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -86,7 +86,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Gua</td>
-                    <td className="text-center"><i class="fas fa-volleyball-ball"></i></td>
+                    <td className="text-center"><i className="fas fa-volleyball-ball"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -94,7 +94,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Cancún</td>
-                    <td className="text-center"><i class="far fa-futbol"></i></td>
+                    <td className="text-center"><i className="far fa-futbol"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -102,7 +102,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Saltillo</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -110,15 +110,15 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Bajío</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
-                    <td className="text-center">Gua</td>
+                    <td className="text-center">Bajío</td>
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
-                    <td className="text-center">Gua</td>
-                    <td className="text-center"><i class="fas fa-volleyball-ball"></i></td>
+                    <td className="text-center">Saltillo</td>
+                    <td className="text-center"><i className="fas fa-volleyball-ball"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -126,7 +126,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Cancún</td>
-                    <td className="text-center"><i class="far fa-futbol"></i></td>
+                    <td className="text-center"><i className="far fa-futbol"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -134,7 +134,7 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Saltillo</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
@@ -142,15 +142,15 @@ class CalendarScreen extends React.Component {
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">Bajío</td>
-                    <td className="text-center"><i class="fas fa-running"></i></td>
+                    <td className="text-center"><i className="fas fa-running"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2018-10-31</th>
-                    <td className="text-center">Gua</td>
+                    <td className="text-center">Cancún</td>
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
-                    <td className="text-center">Gua</td>
-                    <td className="text-center"><i class="fas fa-volleyball-ball"></i></td>
+                    <td className="text-center">Bajío</td>
+                    <td className="text-center"><i className="fas fa-volleyball-ball"></i></td>
                   </tr>
                 </tbody>
               </Table>

@@ -1,11 +1,14 @@
 // Fer
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import {
-  Container, Row, Col
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
 } from 'reactstrap';
-import {
-  TwitterTimelineEmbed
-} from 'react-twitter-embed';
 
 class HomeScreen extends React.Component {
 
@@ -18,7 +21,7 @@ class HomeScreen extends React.Component {
           <Col sm="8">
             <Row>
               <Col sm="6">
-                <a href="/calendar" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a href="/calendar" className="thumbnail-red">
                   <div className="card text-center" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Calendario</h5></div>
@@ -28,7 +31,7 @@ class HomeScreen extends React.Component {
               </Col>
               <br />
               <Col sm="6">
-                <a href="/court" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a href="/court" className="thumbnail-red">
                   <div className="card text-center" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Canchas</h5></div>
@@ -41,8 +44,8 @@ class HomeScreen extends React.Component {
             <br />
             <Row>
             <Col sm="6">
-              <a href="/sports" style={{ color: 'inherit', textDecoration: 'none' }}>
-                <div className="card text-center" >
+              <a href="/sports" className="thumbnail-red">
+                <div className="card text-center"  >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Equipos</h5></div>
                   <div className="card-body"></div>
@@ -51,7 +54,7 @@ class HomeScreen extends React.Component {
             </Col>
             <br />
             <Col sm="6">
-              <a href="/results" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a href="/results" className="thumbnail-red" >
                 <div className="card text-center" >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Resultados</h5></div>
@@ -67,7 +70,7 @@ class HomeScreen extends React.Component {
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="DeLaSalleBajio"
-              options={{ height: 400 }}
+              options={{ height: 470 }}
             />
           </Col>
         </Row>

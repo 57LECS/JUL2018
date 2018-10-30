@@ -9,6 +9,8 @@ import TeamScreen from './Screens/teamScreen';
 import CalendarScreen from './Screens/calendarScreen';
 import CourtScreen from './Screens/courtScreen';
 import Footer from './Screens/Footer';
+import './index.css';
+import './lasallistas.css';
 
 class App extends Component {
   render() {
@@ -27,7 +29,10 @@ class App extends Component {
             <Route component={error} />
           </Switch>
         </BrowserRouter>
-        <Footer />
+
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     );
   }
