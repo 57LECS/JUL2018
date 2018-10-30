@@ -7,7 +7,8 @@ import error from './Screens/Error';
 import Navigation from './Screens/Navigation';
 import TeamScreen from './Screens/teamScreen';
 import CalendarScreen from './Screens/calendarScreen';
-import CourtScreen from './Screens/courtScreen'
+import CourtScreen from './Screens/courtScreen';
+import Footer from './Screens/Footer';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route component={error} />
           </Switch>
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }
