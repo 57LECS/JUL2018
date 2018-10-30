@@ -3,6 +3,10 @@
     text-decoration: none;
 }
 
+.thumb:hover{
+    background-color: #f2f2f2;
+}
+
 .thumbnail-red{
     color: black;
 }

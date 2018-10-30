@@ -22,7 +22,7 @@ class HomeScreen extends React.Component {
             <Row>
               <Col sm="6">
                 <a href="/calendar" className="thumbnail-red">
-                  <div className="card text-center" >
+                  <div className="card text-center thumb" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Calendario</h5></div>
                     <div className="card-body"></div>
@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
               <br />
               <Col sm="6">
                 <a href="/court" className="thumbnail-red">
-                  <div className="card text-center" >
+                  <div className="card text-center thumb" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Canchas</h5></div>
                     <div className="card-body"></div>
@@ -44,8 +44,8 @@ class HomeScreen extends React.Component {
             <br />
             <Row>
             <Col sm="6">
-              <a href="/sports" className="thumbnail-red">
-                <div className="card text-center"  >
+              <a href="/sports/teams" className="thumbnail-red">
+                <div className="card text-center thumb"  >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Equipos</h5></div>
                   <div className="card-body"></div>
@@ -54,8 +54,8 @@ class HomeScreen extends React.Component {
             </Col>
             <br />
             <Col sm="6">
-              <a href="/results" className="thumbnail-red" >
-                <div className="card text-center" >
+              <a href="/sports/results" className="thumbnail-red" >
+                <div className="card text-center thumb" >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Resultados</h5></div>
                   <div className="card-body"></div>
