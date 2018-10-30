@@ -1,7 +1,39 @@
 // Fer
 import React from 'react';
+import * as firebase from 'firebase'
 
 class ResultScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      games: []
+    };
+
+    //bindings
+
+  }
+
+  componentDidMount()
+  {
+    const rootref = firebase.database().ref();
+    var db = firebase.firestore();
+    const firestore = firebase.firestore();
+    const settings = {/* your settings... */ timestampsInSnapshots: true};
+    firestore.settings(settings);
+  
+    console.log("fire")
+  
+    firestore.collection('partidos').doc('oct2018').collection('voleibol_de_sala').get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log("DD")
+          console.log(doc.id, " => ", doc.data());
+      });
+  });
+  
+
+  }
 
   render() {
     return (
@@ -21,32 +53,24 @@ class ResultScreen extends React.Component {
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                    <th class="text-center">Action</th>
+                    <th>cancha</th>
+                    <th>local</th>
+                    <th>visitante</th>
+                    <th>fecha</th>
+                    <th>modalidad</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>News</td>
-                    <td>News Cate</td>
-                    <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Products</td>
-                    <td>Main Products</td>
-                    <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Blogs</td>
-                    <td>Parent Blogs</td>
-                    <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                  </tr>
-                </tbody>
+                {this.state["games"].map(function (x, i = 1) { 
+                return (
+                <tr key={"trGame" + i}>cluster {++i}: {x}
+                
+                </tr>
+              
+              
+              )})}
+
+                  </tbody>
               </table>
             </div>
 
