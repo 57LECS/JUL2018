@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom'
+import ChooseSportScreen from './Screens/chooseSportScreen';
+import HomeScreen from './Screens/homeScreen';
+import ResultScreen from './Screens/resultScreen';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <label>App</label>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/sports" component={ChooseSportScreen} />
+          <Route path="/results" component={ResultScreen} />
+          <Route component={Error} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
