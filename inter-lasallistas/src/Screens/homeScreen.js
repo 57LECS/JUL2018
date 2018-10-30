@@ -20,7 +20,7 @@ class HomeScreen extends React.Component {
           <Col sm="8">
             <Row>
               <Col sm="6">
-                <a href="/sports" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a href="/calendar" style={{ color: 'inherit', textDecoration: 'none' }}>
                   <div className="card text-center" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Calendario</h5></div>
@@ -30,10 +30,10 @@ class HomeScreen extends React.Component {
               </Col>
               <br />
               <Col sm="6">
-                <a href="/results" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a href="/court" style={{ color: 'inherit', textDecoration: 'none' }}>
                   <div className="card text-center" >
                     <div className="card-body"></div>
-                    <div className="card-body"><h5>Resultados</h5></div>
+                    <div className="card-body"><h5>Canchas</h5></div>
                     <div className="card-body"></div>
                   </div>
                 </a>
