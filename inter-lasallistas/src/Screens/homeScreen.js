@@ -4,9 +4,7 @@ import {
   Container, Row, Col
 } from 'reactstrap';
 import {
-  TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton,
-  TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton,
-  TwitterVideoEmbed, TwitterOnAirButton
+  TwitterTimelineEmbed
 } from 'react-twitter-embed';
 
 class HomeScreen extends React.Component {
@@ -43,7 +41,7 @@ class HomeScreen extends React.Component {
             <br />
             <Row>
             <Col sm="6">
-              <a href="/teams" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a href="/sports" style={{ color: 'inherit', textDecoration: 'none' }}>
                 <div className="card text-center" >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Equipos</h5></div>
