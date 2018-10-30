@@ -93,7 +93,7 @@ public class CalendarController implements TabLayout.OnTabSelectedListener,Swipe
 
         partido = new Partido();
         partido.setEquipo1(equipo1);
-        partido.setEquipo2(equipo2);
+        partido.setEquipo2(equipo3);
         partido.setResultado(new String[]{
                 "93","-","82"
         });

@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import mx.edu.delasalle.lasallistasapp.Calendar.CalendarFragment;
+import mx.edu.delasalle.lasallistasapp.Map.MapFragment;
 import mx.edu.delasalle.lasallistasapp.Utilities.ActivitiesUtils;
 import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
 
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity {
                                 setFragment(new CalendarFragment(),ActivitiesUtils.CALENDAR);
                                 break;
                             case R.id.action_map:
+                                setFragment(new MapFragment(),ActivitiesUtils.MAP);
                                 break;
                             case R.id.action_medals:
                                 break;

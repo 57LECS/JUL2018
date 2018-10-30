@@ -62,7 +62,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
         }
 
         holder.txvTeam1.setText(partido.getEquipo1().getUniversidad().getNombre());
-        holder.txvTeam2.setText(partido.getEquipo1().getUniversidad().getNombre());
+        holder.txvTeam2.setText(partido.getEquipo2().getUniversidad().getNombre());
     }
 
     @Override
