@@ -1,5 +1,7 @@
 package mx.edu.delasalle.lasallistasapp.Models;
 
+import java.util.Date;
+
 /**
  * Created by Axel on 24/10/2018
  */
@@ -11,6 +13,7 @@ public class Partido {
     private Equipo Ganador;
     private Enums.RamasEnum Rama;
     private String[] Resultado;
+    private Date Fecha;
 
     public mx.edu.delasalle.lasallistasapp.Models.Cancha getCancha() {
         return Cancha;
@@ -68,5 +71,12 @@ public class Partido {
         Resultado = resultado;
     }
 
+    public Date getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        Fecha = fecha;
+    }
 
 }
