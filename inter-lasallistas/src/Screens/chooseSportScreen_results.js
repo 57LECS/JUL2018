@@ -13,7 +13,7 @@ class ChooseSportScreenResults extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href="/ajedrez" className="thumbnail-blue">
+            <a href="/results" className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Ajedrez</h5></div>

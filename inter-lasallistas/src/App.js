@@ -11,6 +11,8 @@ import CalendarScreen from './Screens/calendarScreen';
 import CourtScreen from './Screens/courtScreen';
 import CalendarMenuScreen from './Screens/calendarMenuScreen';
 import Footer from './Screens/Footer';
+import NewTeam from './Components/newTeam';
+import TeamScren from './Screens/teamScreen';
 import './index.css';
 import './lasallistas.css';
 
@@ -26,7 +28,7 @@ class App extends Component {
             <Route path="/sports/teams" component={ChooseSportScreen} />
             <Route path="/sports/results" component={ChooseSportScreenResults} />
             <Route path="/results" component={ResultScreen} />
-            <Route path="/teams" component={TeamScreen} />
+            <Route path="/teams/conf" component={TeamScreen} />
             <Route path="/calendar/get" component={CalendarScreen} />
             <Route path="/court" component={CourtScreen} />
             <Route path="/calendar" component={CalendarMenuScreen} />

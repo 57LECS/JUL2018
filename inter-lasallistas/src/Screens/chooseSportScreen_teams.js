@@ -13,7 +13,7 @@ class ChooseSportScreen extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href="/ajedrez" className="thumbnail-blue">
+            <a href="/teams/conf" className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Ajedrez</h5></div>
@@ -23,7 +23,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/atletismo" className="thumbnail-blue">
+            <a href="/teams/conf" className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Atletismo</h5></div>
@@ -33,7 +33,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/basquetbol" className="thumbnail-blue">
+            <a href="/teams/conf" className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Basquetbol</h5></div>
