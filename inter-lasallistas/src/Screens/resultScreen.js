@@ -38,18 +38,15 @@ class ResultScreen extends React.Component {
   render() {
     return (
       <div>
-
-    
-
-        <div class="container">
+        <div className="container">
           <h1>Pantalla Resultados</h1>
-          <div class="row">
+          <div className="row">
             <div col="col-md-6">
 
               <br />
-              <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
+              <a href="#" className="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
               <br /><br />
-              <table class="table table-bordered">
+              <table className="table table-bordered">
                 <thead>
                   <tr>
                     <th>cancha</th>
@@ -76,7 +73,7 @@ class ResultScreen extends React.Component {
             <div col="col-md-6">
               tabla Resultados
 
-             <table class="table table-bordered">
+             <table className="table table-bordered">
                 <thead>
 
                   <tr>

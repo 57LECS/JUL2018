@@ -1,15 +1,17 @@
 // Andres
 // Fer
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Alert } from 'reactstrap';
 
 class CourtScreen extends React.Component {
 
   render() {
     return (
-      <div>
-        Hola a canchas
-      </div>
+      <Container>
+        <Alert color="success">
+          Bienvenido a Canchas
+        </Alert>
+      </Container>
     );
   }
 

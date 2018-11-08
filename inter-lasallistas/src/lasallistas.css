@@ -1,0 +1,21 @@
+.thumbnail-red:hover{
+    color:red;
+    text-decoration: none;
+}
+
+.thumb:hover{
+    background-color: #f2f2f2;
+}
+
+.thumbnail-red{
+    color: black;
+}
+
+.thumbnail-blue:hover{
+    color:blue;
+    text-decoration: none;
+}
+
+.thumbnail-blue{
+    color: black;
+}
