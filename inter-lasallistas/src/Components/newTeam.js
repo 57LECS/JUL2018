@@ -5,6 +5,8 @@ import {
   Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText
 } from 'reactstrap';
 
+
+
 class NewTeam extends React.Component {
 
   render() {
@@ -29,6 +31,8 @@ class NewTeam extends React.Component {
             <option>3</option>
             <option>4</option>
             <option>5</option>
+           
+
           </Input>
         </FormGroup>
         <FormGroup>

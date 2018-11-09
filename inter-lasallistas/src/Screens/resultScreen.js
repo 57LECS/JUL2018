@@ -24,7 +24,7 @@ class ResultScreen extends React.Component {
   
     console.log("fire")
   
-    firestore.collection('partidos').doc('oct2018').collection('voleibol_de_sala').get().then(function(querySnapshot) {
+    firestore.collection('eventos').doc('oct2018').collection('voleibol_de_sala').get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
           // doc.data() is never undefined for query doc snapshots
           console.log("DD")
