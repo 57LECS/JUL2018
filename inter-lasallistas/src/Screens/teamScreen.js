@@ -47,16 +47,20 @@ class TeamScreen extends React.Component {
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
-    var arr = this.state["branches"];
+    var arr = this.state["teams"];
  
     var that = this;
          
-    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==","voleibol de sala").get().then(function(querySnapshot) {
+    //PROBABLEMENTE HAYA QUE CAMBIAR EL TIPO DE DATO DE DEPORTE DE REFERENCIA A STRING Y PONERLE VOLEIBOLDE SALA
+    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
-        arr.push(  doc.data().nombre_corto);
-      
-        that.setState({schools:arr});
+        var obj = {}
+        obj.nombre = doc.data().nombre;
+        obj.rama = doc.data().rama;
+        arr.push(obj );
+      console.log(obj)
+        that.setState({teams:arr});
         });
         
     
@@ -99,8 +103,8 @@ class TeamScreen extends React.Component {
    firestore.collection('eventos').doc('oct2018').collection('universidades').get().then(function(querySnapshot) {
      querySnapshot.forEach(function(doc) {
        // doc.data() is never undefined for query doc snapshots
-       console.log("DD")
-       console.log(doc.id, " => ", doc.data().nombre_corto);
+       //console.log("DD")
+      // console.log(doc.id, " => ", doc.data().nombre_corto);
        arr.push(  doc.data().nombre_corto);
      
        that.setState({schools:arr});
@@ -162,12 +166,17 @@ class TeamScreen extends React.Component {
                     <th className="text-center">rama</th>
                     <th className="text-center">escuela</th>
                   </tr>
+                  {this.state["teams"].map(function (x, i = 1) { 
+                                return (
+                                <tr  key={"trTeam" + i}>
+                                    <td className="text-center">{i++}</td>
+                                    <td className="text-center">{x.nombre}</td>
+                                    <td className="text-center">{x.rama}</td>
+                                </tr>
+              
+              
+                                 )})}
                   <tr>
-                    <td className="text-center">Neza</td>
-                    <td className="text-center">-</td>
-                    <td className="text-center">-</td>
-                    <td className="text-center">Victoria</td>
-                    <td className="text-center"><i className="fas fa-basketball-ball"></i></td>
                   </tr>
                   </tbody>
                   </Table>
