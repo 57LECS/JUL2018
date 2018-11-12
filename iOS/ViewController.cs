@@ -1,6 +1,7 @@
 ﻿using System;
 
 using UIKit;
+using Firebase.Core;
 
 namespace Lasallistas.iOS
 {
@@ -23,6 +24,11 @@ namespace Lasallistas.iOS
                 var title = string.Format("{0} clicks!", count++);
                 Button.SetTitle(title, UIControlState.Normal);
             };
+
+            //Base command to initialize Firebase.
+            App.Configure();
+
+
         }
 
         public override void DidReceiveMemoryWarning()
