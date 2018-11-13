@@ -132,9 +132,6 @@
     </Compile>
     <Compile Include="[AlertControllers]\AppAlertController.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="GoogleService-Info.plist" />
-  </ItemGroup>
   <Import Project="..\Lasallistas\Lasallistas.projitems" Label="Shared" Condition="Exists('..\Lasallistas\Lasallistas.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
