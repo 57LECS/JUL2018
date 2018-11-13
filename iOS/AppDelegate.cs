@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Firebase.Core;
 
 namespace Lasallistas.iOS
 {
@@ -20,6 +21,7 @@ namespace Lasallistas.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+            App.Configure();
 
             return true;
         }
