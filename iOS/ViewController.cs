@@ -11,7 +11,7 @@ namespace Lasallistas.iOS
     {
         int count = 1;
 
-        Firestore db;
+        //Firestore db;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -33,13 +33,14 @@ namespace Lasallistas.iOS
 
 
             //Base command to initialize Firebase.
-            App.Configure();
+            //App.Configure();
 
             //Ejemplo para traer una colección de Firestore.
-            db.GetCollection("eventos").GetDocuments(HandleQuerySnapshotHandler);
+            //db.GetCollection("eventos").GetDocuments(HandleQuerySnapshotHandler);
 
         }
 
+        /*
         void HandleQuerySnapshotHandler(QuerySnapshot snapshot, Foundation.NSError error)
         {
             if (error != null) {
@@ -54,6 +55,7 @@ namespace Lasallistas.iOS
             }
                 
         }
+        */
 
 
         public override void DidReceiveMemoryWarning()
