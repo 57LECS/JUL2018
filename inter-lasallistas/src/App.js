@@ -10,9 +10,10 @@ import TeamScreen from './Screens/teamScreen';
 import CalendarScreen from './Screens/calendarScreen';
 import CourtScreen from './Screens/courtScreen';
 import CalendarMenuScreen from './Screens/calendarMenuScreen';
+import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
 import NewTeam from './Components/newTeam';
-import TeamScren from './Screens/teamScreen';
+import LoginScreen from './Screens/login'
 import './index.css';
 import './lasallistas.css';
 
@@ -24,7 +25,9 @@ class App extends Component {
         <br />
         <BrowserRouter>
           <Switch>
-            <Route path="/" component={HomeScreen} exact />
+            <Route path="/" component={EventScreen} exact />
+            <Route path="/login" component={LoginScreen} exact />
+            <Route path="/home" component={HomeScreen} exact />
             <Route path="/sports/teams" component={ChooseSportScreen} />
             <Route path="/sports/results" component={ChooseSportScreenResults} />
             <Route path="/results" component={ResultScreen} />

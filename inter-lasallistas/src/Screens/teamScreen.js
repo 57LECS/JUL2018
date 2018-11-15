@@ -17,14 +17,23 @@ class TeamScreen extends React.Component {
           branches: [],
           schools:[],
           sport: "voleibol de sala",
-          teams:[]
+          teams:[],
+          teamName:"",
+          branch:"",
+          university:""
         };
     
         //bindings
         this.loadBranchesCombo = this.loadBranchesCombo.bind(this);
         this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
         this.loadTeamsTable = this.loadTeamsTable.bind(this);
-        
+        this.submitTeam = this.submitTeam.bind(this);
+
+        this.handleUniversityCombo = this.handleUniversityCombo.bind(this);
+        this.handleBranchCombo = this.handleBranchCombo.bind(this);
+        this.handleTeamInput = this.handleTeamInput.bind(this);
+
+        this.deleteTeam = this.deleteTeam.bind(this);
       }
     
 
@@ -40,6 +49,32 @@ class TeamScreen extends React.Component {
     this.loadSchoolsCombo();
     this.loadTeamsTable();
   }
+  
+  deleteTeam()
+  {
+      console.log("del");
+      alert("delete")
+      
+  }
+  handleBranchCombo(event)
+  {
+    this.setState({branch: event.target.value});
+
+  }  
+  handleTeamInput(event)
+  {
+    this.setState({teamName: event.target.value});
+
+  }
+
+  
+  handleUniversityCombo(event)
+  {
+    this.setState({university: event.target.value});
+
+  }
+
+
   loadTeamsTable()
   {
 
@@ -51,13 +86,15 @@ class TeamScreen extends React.Component {
  
     var that = this;
          
-    //PROBABLEMENTE HAYA QUE CAMBIAR EL TIPO DE DATO DE DEPORTE DE REFERENCIA A STRING Y PONERLE VOLEIBOLDE SALA
-    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
+    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).onSnapshot(function(querySnapshot) {
+        arr = [];
+        querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         var obj = {}
+        obj.id = doc.id;
         obj.nombre = doc.data().nombre;
         obj.rama = doc.data().rama;
+        obj.escuela = doc.data().escuela;
         arr.push(obj );
       console.log(obj)
         that.setState({teams:arr});
@@ -67,6 +104,46 @@ class TeamScreen extends React.Component {
     });
 
   }
+
+
+  submitTeam()
+  {
+
+    var db = firebase.firestore();
+    const firestore = firebase.firestore();
+    const settings = {/* your settings... */ timestampsInSnapshots: true};
+    firestore.settings(settings);
+    var sport = this.state["sport"];
+    var university = this.state["university"];
+    var teamName = this.state["teamName"];
+    var branch = this.state["branch"];
+    var that = this;
+       
+    if(teamName == "")
+    {
+        alert("Ingrese un nombre de equipo!")
+        return;
+    }
+
+    firestore.collection('eventos').doc('oct2018').collection('equipos').doc().set({
+        nombre: teamName,
+        rama: branch,
+        escuela: university,
+        deporte: sport
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+        this.state["teamName"] = "";
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });    
+    
+    // });
+
+  }
+
+
   loadBranchesCombo()
   {
       
@@ -82,6 +159,7 @@ class TeamScreen extends React.Component {
       querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         arr =  doc.data().ramas;
+        that.state["branch"] = arr[0]
         that.setState({branches:arr});
         });
     
@@ -106,7 +184,7 @@ class TeamScreen extends React.Component {
        //console.log("DD")
       // console.log(doc.id, " => ", doc.data().nombre_corto);
        arr.push(  doc.data().nombre_corto);
-     
+       that.state["university"] = arr[0]
        that.setState({schools:arr});
        });
        
@@ -129,12 +207,12 @@ class TeamScreen extends React.Component {
                                 <Input type="text" name="email" id="exampleEmail" value={this.state["sport"]} disabled />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="examplePassword">Nombre del equipo:</Label>
-                                <Input type="text" name="password" id="examplePassword" placeholder="---" />
+                                <Label for="txtTeamName">Nombre del equipo:</Label>
+                                <Input type="text" name="txtTeamName" value={this.state["teamName"]} onChange={this.handleTeamInput} id="txtTeamName" placeholder="" />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="cmbBranch">Rama</Label>
-                                <Input type="select" name="selectBranch" id="cmbBranch">
+                                <Input type="select" name="selectBranch" value={this.state["branch"]}  onChange={this.handleBranchCombo} id="cmbBranch">
                                 {this.state["branches"].map(function (x, i = 1) { 
                                 return (
                                 <option value={x} key={"cmbBranch" + i}>{x} </option>
@@ -142,8 +220,8 @@ class TeamScreen extends React.Component {
                                 </Input>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="cmbBranch">Universidad</Label>
-                                <Input type="select" name="selectSchool" id="cmbSchool">
+                                <Label for="cmbSchool">Universidad</Label>
+                                <Input type="select" value={this.state["university"]}  onChange={this.handleUniversityCombo} name="selectSchool" id="cmbSchool">
                                 {this.state["schools"].map(function (x, i = 1) { 
                                 return (
                                 <option value={x} key={"cmbSchool" + i}>{x}
@@ -154,7 +232,7 @@ class TeamScreen extends React.Component {
                                  )})}
                                 </Input>
                             </FormGroup>
-                            <Button>Agregar</Button>
+                            <Button onClick={this.submitTeam}>Agregar</Button>
                         </Form>
                     </Col>
                     <Col md="6">
@@ -162,16 +240,25 @@ class TeamScreen extends React.Component {
                 <tbody>
                   <tr>
                     <th scope="row"> </th>
-                    <th className="text-center">equipo</th>
-                    <th className="text-center">rama</th>
-                    <th className="text-center">escuela</th>
+                    <th className="text-center">Equipo</th>
+                    <th className="text-center">Rama</th>
+                    <th className="text-center">Escuela</th>
+                    <th className="text-center">Acciones</th>
                   </tr>
-                  {this.state["teams"].map(function (x, i = 1) { 
+                  {this.state["teams"].map(function (x, i = 1,that = this) { 
                                 return (
-                                <tr  key={"trTeam" + i}>
-                                    <td className="text-center">{i++}</td>
+                                <tr  key={x.id}>
+                                    <td className="text-center">{++i}</td>
                                     <td className="text-center">{x.nombre}</td>
                                     <td className="text-center">{x.rama}</td>
+                                    <td className="text-center">{x.escuela}</td>
+                                    <td class="text-center">
+                                        <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                                        <a href="#" class="btn btn-danger btn-xs" onClick={that.deleteTeam}>
+                                        <span class="glyphicon glyphicon-remove"></span> Del</a>
+                                    </td>
+                 
+
                                 </tr>
               
               
