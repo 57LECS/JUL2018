@@ -11,14 +11,14 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     };
   }
 
 
    logout()
   {
-    
+   
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
     }).catch(function(error) {

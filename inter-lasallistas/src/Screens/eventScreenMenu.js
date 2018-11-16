@@ -1,4 +1,3 @@
-// Fer
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import {
@@ -54,15 +53,16 @@ class HomeScreen extends React.Component {
  
     var that = this;
          
-    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).onSnapshot(function(querySnapshot) {
+    firestore.collection('eventos').onSnapshot(function(querySnapshot) {
         arr = [];
         querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         var obj = {}
         obj.id = doc.id;
         obj.nombre = doc.data().nombre;
-        obj.rama = doc.data().rama;
-        obj.escuela = doc.data().escuela;
+        obj.fechaInicio = doc.data().fechaInicio;
+        obj.sede = doc.data().sede;
+        obj.modalidad = doc.data().modalidad;
         arr.push(obj );
       console.log(obj)
         that.setState({teams:arr});
@@ -85,38 +85,36 @@ class HomeScreen extends React.Component {
         <Row>
           <br />
           <Col sm="8">
-          <Table bordered>
+          <div style={{ display: 'block', maxHeight: '345px', overflowY: "auto", msOverflowStyle: "-ms-autohiding-scrollbar" }}>
+            
+            <Table bordered>
                 <tbody>
                   <tr>
                     <th scope="row"> </th>
-                    <th className="text-center">Equipo</th>
-                    <th className="text-center">Rama</th>
-                    <th className="text-center">Escuela</th>
+                    <th className="text-center">Fecha Inicio</th>
+                    <th className="text-center">Sede</th>
+                    <th className="text-center">Nombre</th>
+                    <th className="text-center">Modalidad</th>
                     <th className="text-center">Acciones</th>
                   </tr>
                   {this.state["teams"].map(function (x, i = 1,that = this) { 
                                 return (
                                 <tr  key={x.id}>
                                     <td className="text-center">{++i}</td>
+                                    <td className="text-center">{x.fechaInicio}</td>
+                                    <td className="text-center">{x.sede}</td>
                                     <td className="text-center">{x.nombre}</td>
-                                    <td className="text-center">{x.rama}</td>
-                                    <td className="text-center">{x.escuela}</td>
+                                    <td className="text-center">{x.modalidad}</td>
                                     <td class="text-center">
                                         <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
                                         <a href="#" class="btn btn-danger btn-xs" onClick={that.deleteTeam}>
                                         <span class="glyphicon glyphicon-remove"></span> Del</a>
                                     </td>
-                 
-
                                 </tr>
-              
-              
                                  )})}
-                  <tr>
-                  </tr>
-                  </tbody>
-                  </Table>
-              
+                    </tbody>
+              </Table>
+            </div>  
                
           </Col>
           
@@ -135,24 +133,8 @@ class HomeScreen extends React.Component {
 
             <br />
             <Row>
-            <Col sm="6">
-              <a href="/sports/teams" className="thumbnail-red">
-                <div className="card text-center thumb"  >
-                  <div className="card-body"></div>
-                  <div className="card-body"><h5>Equipos</h5></div>
-                  <div className="card-body"></div>
-                </div>
-              </a>
-            </Col>
-            <br />
-            <Col sm="6">
-              <a href="/sports/results" className="thumbnail-red" >
-                <div className="card text-center thumb" >
-                  <div className="card-body"></div>
-                  <div className="card-body"><h5>Resultados</h5></div>
-                  <div className="card-body"></div>
-                </div>
-              </a>
+            <Col sm="12">
+            <img src="../images/ulsa_red.jpg" alt="logo" style={{width: '250px'}} />
             </Col>
 
             </Row>
