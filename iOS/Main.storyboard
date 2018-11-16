@@ -134,7 +134,7 @@
         <!--Calendario-->
         <scene sceneID="uwl-Mc-QeB">
             <objects>
-                <viewController id="jg5-xQ-Vvm" sceneMemberID="viewController">
+                <viewController id="jg5-xQ-Vvm" customClass="CalendarioViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D3F-Ce-Gxf"/>
                         <viewControllerLayoutGuide type="bottom" id="Bj6-ty-hL4"/>
