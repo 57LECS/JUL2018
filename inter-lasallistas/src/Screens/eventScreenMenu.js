@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Modal, Button, ModalBody, ModalFooter,ModalHeader} from 'reactstrap';
 import {
   Table,
  
 } from 'reactstrap';
+import NewEvent from '../Components/newEvent'
 import * as firebase from 'firebase'
 
 class HomeScreen extends React.Component {
@@ -13,18 +14,26 @@ class HomeScreen extends React.Component {
           branches: [],
           schools:[],
           sport: "voleibol de sala",
-          teams:[]
+          teams:[],
+          show:false
         };
     
         
         //bindings
         this.loadEventsTable = this.loadEventsTable.bind(this);
+        this.showNewEventModal = this.showNewEventModal.bind(this);
         
       }   
 
     componentWillMount()
     {
         this.loadEventsTable();
+    }
+
+    showNewEventModal()
+    {
+      
+      this.setState({ show: true });
     }
 
     
@@ -53,7 +62,7 @@ class HomeScreen extends React.Component {
  
     var that = this;
          
-    firestore.collection('eventos').onSnapshot(function(querySnapshot) {
+    firestore.collection('eventos').orderBy("fechaInicio", "desc").onSnapshot(function(querySnapshot) {
         arr = [];
         querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
@@ -63,20 +72,23 @@ class HomeScreen extends React.Component {
         obj.fechaInicio = doc.data().fechaInicio;
         obj.sede = doc.data().sede;
         obj.modalidad = doc.data().modalidad;
-        arr.push(obj );
-      console.log(obj)
+        arr.push(obj);
         that.setState({teams:arr});
         });
         
     
     });
     }
+    handleClose()
+    {
+
+    }
     
 
 
   render() {
     return (
-      <Container>
+      <Container >
         <h1>
             Administrador juegos la sallistas
             
@@ -105,10 +117,10 @@ class HomeScreen extends React.Component {
                                     <td className="text-center">{x.sede}</td>
                                     <td className="text-center">{x.nombre}</td>
                                     <td className="text-center">{x.modalidad}</td>
-                                    <td class="text-center">
-                                        <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                                        <a href="#" class="btn btn-danger btn-xs" onClick={that.deleteTeam}>
-                                        <span class="glyphicon glyphicon-remove"></span> Del</a>
+                                    <td className="text-center">
+                                        <a className='btn btn-info btn-xs' href="#"><span className="glyphicon glyphicon-edit"></span> Edit</a> 
+                                        <a href="#" className="btn btn-danger btn-xs" onClick={that.deleteTeam}>
+                                        <span className="glyphicon glyphicon-remove"></span> Del</a>
                                     </td>
                                 </tr>
                                  )})}
@@ -121,7 +133,7 @@ class HomeScreen extends React.Component {
           <Col sm="4">
             <Row>
               <Col sm="12">
-                <a href="/calendar" className="thumbnail-red">
+                <a   onClick={this.showNewEventModal} className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
                     <div className="card-body"><h5>Nuevo evento</h5></div>
@@ -141,7 +153,16 @@ class HomeScreen extends React.Component {
 
           </Col>
         </Row>
+        <Modal size={"lg"} isOpen={this.state["show"]} onHide={this.handleClose}>
+        <ModalHeader toggle={this.toggle}> <h4>Nuevo evento</h4></ModalHeader>
+        <ModalBody>
+         
+          <NewEvent/>
+        </ModalBody>
+ 
+      </Modal>
       </Container>
+  
     );
   }
 
