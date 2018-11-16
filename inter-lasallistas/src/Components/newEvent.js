@@ -14,23 +14,21 @@ class NewEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          branches: [],
+          universities: [],
           schools:[],
           sport: "voleibol de sala",
           teams:[],
           eventName:"",
-          branch:"",
+          university:"",
           mode:""
         };
     
         //bindings
-        this.loadBranchesCombo = this.loadBranchesCombo.bind(this);
-        this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
-        this.loadTeamsTable = this.loadTeamsTable.bind(this);
-        this.submitTeam = this.submitTeam.bind(this);
+        this.loaduniversitiesCombo = this.loaduniversitiesCombo.bind(this);
+        this.submitEvent = this.submitEvent.bind(this);
 
         this.handlemodeCombo = this.handlemodeCombo.bind(this);
-        this.handleBranchCombo = this.handleBranchCombo.bind(this);
+        this.handleuniversityCombo = this.handleuniversityCombo.bind(this);
         this.handleTeamInput = this.handleTeamInput.bind(this);
 
         this.deleteTeam = this.deleteTeam.bind(this);
@@ -45,9 +43,7 @@ class NewEvent extends React.Component {
     console.log("teamScreamDidMount");
     
     this.setState({sport:"voleibol de sala"});
-    this.loadBranchesCombo();
-    this.loadSchoolsCombo();
-    this.loadTeamsTable();
+    this.loaduniversitiesCombo();
   }
   
   deleteTeam()
@@ -56,9 +52,10 @@ class NewEvent extends React.Component {
       alert("delete")
       
   }
-  handleBranchCombo(event)
+  
+  handleuniversityCombo(event)
   {
-    this.setState({branch: event.target.value});
+    this.setState({university: event.target.value});
 
   }  
   handleTeamInput(event)
@@ -74,39 +71,37 @@ class NewEvent extends React.Component {
 
   }
 
-
-  loadTeamsTable()
+  loaduniversitiesCombo()
   {
-
+      
     var db = firebase.firestore();
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
-    var arr = this.state["teams"];
+    var arr = this.state["universities"];
  
     var that = this;
          
-    firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).onSnapshot(function(querySnapshot) {
-        arr = [];
-        querySnapshot.forEach(function(doc) {
+    firestore.collection('universidades').get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
-        var obj = {}
-        obj.id = doc.id;
-        obj.nombre = doc.data().nombre;
-        obj.rama = doc.data().rama;
-        obj.escuela = doc.data().escuela;
-        arr.push(obj );
-      console.log(obj)
-        that.setState({teams:arr});
+        //console.log("DD")
+       // console.log(doc.id, " => ", doc.data().nombre_corto);
+        arr.push(  doc.data().nombre_corto);
+        that.state["university"] = arr[0]
+        that.setState({schools:arr});
         });
         
     
     });
+     
+ }
 
-  }
+
+  
 
 
-  submitTeam()
+  submitEvent()
   {
 
     var db = firebase.firestore();
@@ -116,7 +111,7 @@ class NewEvent extends React.Component {
     var sport = this.state["sport"];
     var mode = this.state["mode"];
     var eventName = this.state["eventName"];
-    var branch = this.state["branch"];
+    var sede = this.state["university"];
     var that = this;
        
     if(eventName == "")
@@ -125,11 +120,12 @@ class NewEvent extends React.Component {
         return;
     }
 
-    firestore.collection('eventos').doc('oct2018').collection('equipos').doc().set({
+    firestore.collection('eventos').doc().set({
         nombre: eventName,
-        rama: branch,
-        escuela: mode,
-        deporte: sport
+        fechaInicio: sede,
+        modalidad: mode,
+        sede: sede
+      
     })
     .then(function() {
         console.log("Document successfully written!");
@@ -144,55 +140,7 @@ class NewEvent extends React.Component {
   }
 
 
-  loadBranchesCombo()
-  {
-      
-    var db = firebase.firestore();
-    const firestore = firebase.firestore();
-    const settings = {/* your settings... */ timestampsInSnapshots: true};
-    firestore.settings(settings);
-    var arr = this.state["branches"];
-
-    var that = this;
-         
-    firestore.collection('eventos').doc('oct2018').collection('deportes').where("nombre","==",this.state["sport"]).get().then(function(querySnapshot) {
-         querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        arr =  doc.data().ramas;
-        that.state["branch"] = arr[0]
-        that.setState({branches:arr});
-        });
-    
-    });
-     
- }
-
- loadSchoolsCombo()
- {
-     
-   var db = firebase.firestore();
-   const firestore = firebase.firestore();
-   const settings = {/* your settings... */ timestampsInSnapshots: true};
-   firestore.settings(settings);
-   var arr = this.state["branches"];
-
-   var that = this;
-        
-   firestore.collection('eventos').doc('oct2018').collection('universidades').get().then(function(querySnapshot) {
-     querySnapshot.forEach(function(doc) {
-       // doc.data() is never undefined for query doc snapshots
-       //console.log("DD")
-      // console.log(doc.id, " => ", doc.data().nombre_corto);
-       arr.push(  doc.data().nombre_corto);
-       that.state["mode"] = arr[0]
-       that.setState({schools:arr});
-       });
-       
-   
-   });
-    
-}
-
+ 
 
   
     render() {
@@ -207,11 +155,11 @@ class NewEvent extends React.Component {
                                 <Input type="text" name="txtTeamName" value={this.state["eventName"]} onChange={this.handleTeamInput} id="txtTeamName" placeholder="" />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="cmbBranch">Sede</Label>
-                                <Input type="select" name="selectBranch" value={this.state["branch"]}  onChange={this.handleBranchCombo} id="cmbBranch">
-                                {this.state["branches"].map(function (x, i = 1) { 
+                                <Label for="cmbuniversity">Sede</Label>
+                                <Input type="select" name="selectuniversity" value={this.state["university"]}  onChange={this.handleuniversityCombo} id="cmbuniversity">
+                                {this.state["universities"].map(function (x, i = 1) { 
                                 return (
-                                <option value={x} key={"cmbBranch" + i}>{x} </option>
+                                <option value={x} key={"cmbuniversity" + i}>{x} </option>
                                  )})}
                                 </Input>
                             </FormGroup>
@@ -225,7 +173,7 @@ class NewEvent extends React.Component {
               
                                 </Input>
                             </FormGroup>
-                            <Button onClick={this.submitTeam}>Agregar</Button>
+                            <Button onClick={this.submitEvent}>Agregar</Button>
                         </Form>
                     </Col>
               

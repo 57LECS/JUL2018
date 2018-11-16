@@ -5,6 +5,7 @@ import {
  
 } from 'reactstrap';
 import NewEvent from '../Components/newEvent'
+import EventRow from '../RowModels/eventRow'
 import * as firebase from 'firebase'
 
 class HomeScreen extends React.Component {
@@ -111,18 +112,8 @@ class HomeScreen extends React.Component {
                   </tr>
                   {this.state["teams"].map(function (x, i = 1,that = this) { 
                                 return (
-                                <tr  key={x.id}>
-                                    <td className="text-center">{++i}</td>
-                                    <td className="text-center">{x.fechaInicio}</td>
-                                    <td className="text-center">{x.sede}</td>
-                                    <td className="text-center">{x.nombre}</td>
-                                    <td className="text-center">{x.modalidad}</td>
-                                    <td className="text-center">
-                                        <a className='btn btn-info btn-xs' href="#"><span className="glyphicon glyphicon-edit"></span> Edit</a> 
-                                        <a href="#" className="btn btn-danger btn-xs" onClick={that.deleteTeam}>
-                                        <span className="glyphicon glyphicon-remove"></span> Del</a>
-                                    </td>
-                                </tr>
+
+                                  <EventRow x={x}i={++i}/>
                                  )})}
                     </tbody>
               </Table>
