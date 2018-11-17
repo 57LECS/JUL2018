@@ -118,12 +118,12 @@ login()
     if(isLoggedIn)
     {
       return (
-        <div>
+        <div >
           <Navigation />
           <br />
-          <BrowserRouter>
+          <BrowserRouter >
             <Switch>
-              <Route path="/" component={EventScreen} exact />
+              <Route path="/" component={EventScreen} exact  />
               <Route path="/home" component={HomeScreen} exact />
               <Route path="/sports/teams" component={ChooseSportScreen} />
               <Route path="/sports/results" component={ChooseSportScreenResults} />

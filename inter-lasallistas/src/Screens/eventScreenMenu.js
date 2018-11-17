@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Modal, Button, ModalBody, ModalFooter,ModalHeader} from 'reactstrap';
+import { Container, Row, Col, Modal, ModalBody,ModalHeader} from 'reactstrap';
 import {
   Table,
  
@@ -16,13 +16,14 @@ class HomeScreen extends React.Component {
           schools:[],
           sport: "voleibol de sala",
           teams:[],
-          show:false
+          showModal:false
         };
     
         
         //bindings
         this.loadEventsTable = this.loadEventsTable.bind(this);
         this.showNewEventModal = this.showNewEventModal.bind(this);
+        this.handleClose = this.handleClose.bind(this)
         
       }   
 
@@ -34,28 +35,12 @@ class HomeScreen extends React.Component {
     showNewEventModal()
     {
       
-      this.setState({ show: true });
+      this.setState({ showModal: true });
     }
-
-    
-
-   logout()
-   {
-     alert("Logout")
-     firebase.auth().signOut().then(function() {
-       // Sign-out successful.
-     }).catch(function(error) {
-       // An error happened.
-     });
-     
-   }
-   
 
     
     loadEventsTable()
     {
-        
-    var db = firebase.firestore();
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -73,6 +58,7 @@ class HomeScreen extends React.Component {
         obj.fechaInicio = doc.data().fechaInicio;
         obj.sede = doc.data().sede;
         obj.modalidad = doc.data().modalidad;
+        obj.erasable = doc.data().borrable;
         arr.push(obj);
         that.setState({teams:arr});
         });
@@ -82,7 +68,7 @@ class HomeScreen extends React.Component {
     }
     handleClose()
     {
-
+      this.setState({ showModal: false });
     }
     
 
@@ -113,7 +99,7 @@ class HomeScreen extends React.Component {
                   {this.state["teams"].map(function (x, i = 1,that = this) { 
                                 return (
 
-                                  <EventRow x={x}i={++i}/>
+                                  <EventRow key={x.id} x={x}i={++i}/>
                                  )})}
                     </tbody>
               </Table>
@@ -144,11 +130,11 @@ class HomeScreen extends React.Component {
 
           </Col>
         </Row>
-        <Modal size={"lg"} isOpen={this.state["show"]} onHide={this.handleClose}>
-        <ModalHeader toggle={this.toggle}> <h4>Nuevo evento</h4></ModalHeader>
+        <Modal size={"lg"} isOpen={this.state["showModal"]}>
+        <ModalHeader toggle={this.toggle}>Nuevo evento</ModalHeader>
         <ModalBody>
          
-          <NewEvent/>
+          <NewEvent unmountMe={this.handleClose} />
         </ModalBody>
  
       </Modal>

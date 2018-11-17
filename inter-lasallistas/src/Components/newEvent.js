@@ -16,11 +16,12 @@ class NewEvent extends React.Component {
         this.state = {
           universities: [],
           schools:[],
-          sport: "voleibol de sala",
           teams:[],
           eventName:"",
           university:"",
-          mode:""
+          mode:"",
+          startDate:"",
+          endDate:""
         };
     
         //bindings
@@ -29,10 +30,18 @@ class NewEvent extends React.Component {
 
         this.handlemodeCombo = this.handlemodeCombo.bind(this);
         this.handleuniversityCombo = this.handleuniversityCombo.bind(this);
-        this.handleTeamInput = this.handleTeamInput.bind(this);
+        this.handleEventNameInput = this.handleEventNameInput.bind(this);
+        this.handleStartDateInput = this.handleStartDateInput.bind(this);
+        this.handleEndDateInput = this.handleEndDateInput.bind(this);
 
         this.deleteTeam = this.deleteTeam.bind(this);
+        this.dismiss = this.dismiss.bind(this);
       }
+
+      dismiss() {
+          
+        this.props.unmountMe();
+     } 
     
 
     
@@ -43,24 +52,29 @@ class NewEvent extends React.Component {
     console.log("teamScreamDidMount");
     
     this.setState({sport:"voleibol de sala"});
+    this.setState({mode:"Universidad"});
     this.loaduniversitiesCombo();
   }
-  
-  deleteTeam()
-  {
-      console.log("del");
-      alert("delete")
-      
-  }
+
   
   handleuniversityCombo(event)
   {
     this.setState({university: event.target.value});
 
   }  
-  handleTeamInput(event)
+  handleEventNameInput(event)
   {
     this.setState({eventName: event.target.value});
+
+  }  
+  handleStartDateInput(event)
+  {
+    this.setState({startDate: event.target.value});
+
+  }  
+  handleEndDateInput(event)
+  {
+    this.setState({endDate: event.target.value});
 
   }
 
@@ -112,6 +126,8 @@ class NewEvent extends React.Component {
     var mode = this.state["mode"];
     var eventName = this.state["eventName"];
     var sede = this.state["university"];
+    var fechaInicio = this.state["startDate"];
+    var fechaFin = this.state["endDate"];
     var that = this;
        
     if(eventName == "")
@@ -122,14 +138,18 @@ class NewEvent extends React.Component {
 
     firestore.collection('eventos').doc().set({
         nombre: eventName,
-        fechaInicio: sede,
+        fechaInicio: fechaInicio,
+        fechaFin:fechaFin,
         modalidad: mode,
-        sede: sede
+        sede: sede,
+        borrable:true
       
     })
     .then(function() {
         console.log("Document successfully written!");
-        this.state["eventName"] = "";
+        
+        that.dismiss();
+        that.setState({eventName:""});
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
@@ -146,13 +166,19 @@ class NewEvent extends React.Component {
     render() {
         return (
             <Container>
-                <br />
                 <Row>
                     <Col md="12">
                         <Form>
                             <FormGroup>
                                 <Label for="txtTeamName">Nombre del evento:</Label>
-                                <Input type="text" name="txtTeamName" value={this.state["eventName"]} onChange={this.handleTeamInput} id="txtTeamName" placeholder="" />
+                                <Input type="text" name="txtTeamName" value={this.state["eventName"]} onChange={this.handleEventNameInput} id="txtTeamName" placeholder="" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="startDate">Fecha de inicio:</Label>
+                                <Input type="date" name="date" id="startDate" placeholder="date placeholder"value={this.state["startDate"]} onChange={this.handleStartDateInput} />
+                            </FormGroup>        <FormGroup>
+                                <Label for="endDate">Fecha de fin:</Label>
+                                <Input type="date" name="date" id="endDate" placeholder="date placeholder"value={this.state["endDate"]} onChange={this.handleEndDateInput}  />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="cmbuniversity">Sede</Label>
@@ -173,12 +199,15 @@ class NewEvent extends React.Component {
               
                                 </Input>
                             </FormGroup>
-                            <Button onClick={this.submitEvent}>Agregar</Button>
+                            <br/>
+                            <hr/>
+                            <Button color={"secondary"} onClick={this.dismiss }>Cancelar</Button>{' '}
+                            <Button color={"primary"} onClick={this.submitEvent}>Agregar</Button>
+                      
                         </Form>
                     </Col>
               
                 </Row>
-                <br /><br /><br /><br />
 
             </Container>
         );

@@ -20,30 +20,44 @@ class HomeScreen extends React.Component {
           <br />
           <Col sm="8">
             <Row>
-              <Col sm="6">
-                <a href="/calendar" className="thumbnail-red">
+            <Col sm="4">
+                <a href="/sport" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
-                    <div className="card-body"><h5>Calendario</h5></div>
+                    <div className="card-body"><h5>Deportes</h5></div>
                     <div className="card-body"></div>
                   </div>
                 </a>
               </Col>
               <br />
-              <Col sm="6">
+              <Col sm="4">
                 <a href="/court" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
-                    <div className="card-body"><h5>Canchas</h5></div>
+                    <div className="card-body"><h5>Lugares</h5></div>
                     <div className="card-body"></div>
                   </div>
                 </a>
               </Col>
-            </Row>
-
-            <br />
+              
+              <Col sm="4">
+                <a href="/school" className="thumbnail-red">
+                  <div className="card text-center thumb" >
+                    <div className="card-body"></div>
+                    <div className="card-body"><h5>Escuelas</h5></div>
+                    <div className="card-body"></div>
+                  </div>
+                </a>
+              </Col>
+              <br />
+              
             <Row>
-            <Col sm="6">
+         
+             
+            <br />
+
+            </Row>
+            <Col sm="4">
               <a href="/sports/teams" className="thumbnail-red">
                 <div className="card text-center thumb"  >
                   <div className="card-body"></div>
@@ -52,8 +66,19 @@ class HomeScreen extends React.Component {
                 </div>
               </a>
             </Col>
+     
+            <Col sm="4">
+                <a href="/calendar" className="thumbnail-red">
+                  <div className="card text-center thumb" >
+                    <div className="card-body"></div>
+                    <div className="card-body"><h5>Calendario</h5></div>
+                    <div className="card-body"></div>
+                  </div>
+                </a>
+              </Col>
+             
             <br />
-            <Col sm="6">
+            <Col sm="4">
               <a href="/sports/results" className="thumbnail-red" >
                 <div className="card text-center thumb" >
                   <div className="card-body"></div>
