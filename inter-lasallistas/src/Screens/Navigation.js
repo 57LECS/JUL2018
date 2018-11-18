@@ -32,7 +32,7 @@ class Navigation extends React.Component {
       <div>
         <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/"><img src="../images/redsalle.png" alt="logo" style={{height: '50px'}} /></NavbarBrand>
-          <a style={{float:"right"}} ><img onClick={this.logout} src="../images/exit.png" alt="salir" style={{height: '50px'}} /></a>
+          <div style={{float:"right"}} ><img onClick={this.logout} src="../images/exit.png" alt="salir" style={{height: '50px'}} /></div>
         </Navbar>
       </div>
     );

@@ -3,11 +3,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
+
 } from 'reactstrap';
 
 class HomeScreen extends React.Component {

@@ -2,7 +2,7 @@
 // Fer
 import React from 'react';
 import {
-    Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText,Table
+    Container, Row, Col, Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import * as firebase from 'firebase'
 
@@ -48,9 +48,6 @@ class NewEvent extends React.Component {
   componentDidMount()
   {
   
-    console.log("teamScreamDidMount");
-    
-    this.setState({sport:"voleibol de sala"});
     this.setState({mode:"Universidad"});
     this.loaduniversitiesCombo();
   }
@@ -86,8 +83,7 @@ class NewEvent extends React.Component {
 
   loaduniversitiesCombo()
   {
-      
-    var db = firebase.firestore();
+       
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -117,11 +113,9 @@ class NewEvent extends React.Component {
   submitEvent()
   {
 
-    var db = firebase.firestore();
-    const firestore = firebase.firestore();
+     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
-    var sport = this.state["sport"];
     var mode = this.state["mode"];
     var eventName = this.state["eventName"];
     var sede = this.state["university"];
@@ -129,7 +123,7 @@ class NewEvent extends React.Component {
     var fechaFin = this.state["endDate"];
     var that = this;
        
-    if(eventName == "")
+    if(eventName === "")
     {
         alert("Ingrese un nombre de equipo!")
         return;

@@ -12,12 +12,11 @@ import CourtScreen from './Screens/courtScreen';
 import CalendarMenuScreen from './Screens/calendarMenuScreen';
 import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
-import NewTeam from './Components/newTeam';
 import SchoolScreen from './Screens/schoolScreen';
 import './index.css';
 import './lasallistas.css';
 
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import {
   Form,
   FormGroup,
@@ -48,13 +47,13 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
         
         that.setState({loggedIn:true})
         // ...
@@ -85,7 +84,7 @@ login()
             alert("Ingrese un correo válido");   
             return;
         }
-        if(password == "" || password.length < 6)
+        if(password === "" || password.length < 6)
         {
 
             alert("Ingrese una contraseña válida");   
@@ -94,7 +93,7 @@ login()
 
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
-            var errorCode = error.code;
+            // var errorCode = error.code;
             var errorMessage = error.message;
             // ...
             alert(errorMessage)

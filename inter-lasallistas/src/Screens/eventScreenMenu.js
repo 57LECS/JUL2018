@@ -86,13 +86,13 @@ class HomeScreen extends React.Component {
           
           <Col sm="4">
           <Col sm="12">
-              <a   onClick={this.showNewEventModal} className="thumbnail-red">
+              <div   onClick={this.showNewEventModal} className="thumbnail-red">
                   <div className="card text-center thumb" >
                      
                     <div className="card-body"><h5>Nuevo evento</h5></div>
                     <div className="card-body"></div>
                   </div>
-                </a>
+                </div>
               </Col>
               <br/>
               <Col sm="12">

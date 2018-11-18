@@ -2,7 +2,7 @@
 // Fer
 import React from 'react';
 import {
-    Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText,Table
+    Container, Row, Col, Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import * as firebase from 'firebase'
 
@@ -64,17 +64,17 @@ class NewSchool extends React.Component {
   
     var that = this;
        
-    if(schoolName == "")
+    if(schoolName === "")
     {
         alert("Ingrese un nombre de escuela!")
         return;
     }  
-    if(shortName == "")
+    if(shortName === "")
     {
         alert("Ingrese un nombre corto de escuela!")
         return;
     }  
-    if(address == "")
+    if(address === "")
     {
         alert("Ingrese una dirección de escuela!")
         return;

@@ -16,8 +16,6 @@ class ResultScreen extends React.Component {
 
   componentDidMount()
   {
-    const rootref = firebase.database().ref();
-    var db = firebase.firestore();
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -43,9 +41,6 @@ class ResultScreen extends React.Component {
           <div className="row">
             <div col="col-md-6">
 
-              <br />
-              <a href="#" className="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
-              <br /><br />
               <table className="table table-bordered">
                 <thead>
                   <tr>

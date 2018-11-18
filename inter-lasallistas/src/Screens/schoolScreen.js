@@ -83,13 +83,13 @@ class SchoolScreen extends React.Component {
           
           <Col sm="4">
           <Col sm="12">
-              <a   onClick={this.showNewSchoolModal} className="thumbnail-red">
+              <div   onClick={this.showNewSchoolModal} className="thumbnail-red">
                   <div className="card text-center thumb" >
                      
                     <div className="card-body"><h5>Nueva Escuela</h5></div>
                     <div className="card-body"></div>
                   </div>
-                </a>
+                </div>
               </Col>
               <br/>
              

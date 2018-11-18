@@ -107,9 +107,7 @@ class TeamScreen extends React.Component {
 
 
   submitTeam()
-  {
-
-    var db = firebase.firestore();
+  { 
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -145,9 +143,7 @@ class TeamScreen extends React.Component {
 
 
   loadBranchesCombo()
-  {
-      
-    var db = firebase.firestore();
+  { 
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -168,9 +164,7 @@ class TeamScreen extends React.Component {
  }
 
  loadSchoolsCombo()
- {
-     
-   var db = firebase.firestore();
+ { 
    const firestore = firebase.firestore();
    const settings = {/* your settings... */ timestampsInSnapshots: true};
    firestore.settings(settings);
