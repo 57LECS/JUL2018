@@ -4,63 +4,60 @@ import {
   Table,
  
 } from 'reactstrap';
-import NewEvent from '../Components/newEvent'
-import EventRow from '../RowModels/eventRow'
+import NewSchool from '../Components/newSchool'
+import SchoolRow from '../RowModels/schoolRow'
 import * as firebase from 'firebase'
 
-class HomeScreen extends React.Component {
+class SchoolScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          branches: [],
           schools:[],
-          sport: "voleibol de sala",
-          teams:[],
           showModal:false
         };
     
         
         //bindings
-        this.loadEventsTable = this.loadEventsTable.bind(this);
-        this.showNewEventModal = this.showNewEventModal.bind(this);
+        this.loadSchoolsTable = this.loadSchoolsTable.bind(this);
+        this.showNewSchoolModal = this.showNewSchoolModal.bind(this);
         this.handleClose = this.handleClose.bind(this)
         
       }   
 
     componentWillMount()
     {
-        this.loadEventsTable();
+        this.loadSchoolsTable();
     }
 
-    showNewEventModal()
+    showNewSchoolModal()
     {
       
       this.setState({ showModal: true });
     }
 
     
-    loadEventsTable()
+    loadSchoolsTable()
     {
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
-    var arr = this.state["teams"];
+    var arr = this.state["schools"];
  
     var that = this;
          
-    firestore.collection('eventos').orderBy("fechaInicio", "desc").onSnapshot(function(querySnapshot) {
+    firestore.collection('universidades').onSnapshot(function(querySnapshot) {
         arr = [];
         querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         var obj = {}
         obj.id = doc.id;
         obj.nombre = doc.data().nombre;
-        obj.fechaInicio = doc.data().fechaInicio;
+        obj.nombreCorto = doc.data().nombre_corto;
         obj.sede = doc.data().sede;
         obj.modalidad = doc.data().modalidad;
         obj.erasable = doc.data().borrable;
         arr.push(obj);
-        that.setState({teams:arr});
+        that.setState({schools:arr});
         });
         
     
@@ -77,7 +74,7 @@ class HomeScreen extends React.Component {
     return (
       <Container >
         <h1>
-            Administrador juegos la sallistas
+            Escuelas
             
         </h1>
         <br />
@@ -86,37 +83,22 @@ class HomeScreen extends React.Component {
           
           <Col sm="4">
           <Col sm="12">
-              <a   onClick={this.showNewEventModal} className="thumbnail-red">
+              <a   onClick={this.showNewSchoolModal} className="thumbnail-red">
                   <div className="card text-center thumb" >
                      
-                    <div className="card-body"><h5>Nuevo evento</h5></div>
+                    <div className="card-body"><h5>Nueva Escuela</h5></div>
                     <div className="card-body"></div>
                   </div>
                 </a>
               </Col>
               <br/>
-              <Col sm="12">
-              <a   href="/school" className="thumbnail-red">
-                  <div className="card text-center thumb" >
-                
-                    <div className="card-body"><h5>Escuelas</h5></div>
-                    <div className="card-body"></div>
-                  </div>
-                </a>
-              </Col>
-              
-              <br/>
-              <Col sm="12">
-              <a  className="thumbnail-red">
-                  <div className="card text-center thumb" >
-                
-                    <div className="card-body"><h5>Usuarios</h5></div>
-                    <div className="card-body"></div>
-                  </div>
-                </a>
-              </Col>
-
+             
+            <Col sm="12">
+            <img src="../images/ulsa_red.jpg" alt="logo" style={{width: '250px'}} />
+            </Col>
+         
           </Col>
+     
           <Col sm="8">
           <div style={{ display: 'block', maxHeight: '345px', overflowY: "auto", msOverflowStyle: "-ms-autohiding-scrollbar" }}>
             
@@ -124,16 +106,16 @@ class HomeScreen extends React.Component {
                 <tbody>
                   <tr>
                     <th scope="row"> </th>
-                    <th className="text-center">Fecha Inicio</th>
-                    <th className="text-center">Sede</th>
                     <th className="text-center">Nombre</th>
-                    <th className="text-center">Modalidad</th>
+                    <th className="text-center">Nombre corto</th>
+                    <th className="text-center">Dirección</th>
+           
                     <th className="text-center">Acciones</th>
                   </tr>
-                  {this.state["teams"].map(function (x, i = 1,that = this) { 
+                  {this.state["schools"].map(function (x, i = 1,that = this) { 
                                 return (
 
-                                  <EventRow key={x.id} x={x}i={++i}/>
+                                  <SchoolRow key={x.id} x={x}i={++i}/>
                                  )})}
                     </tbody>
               </Table>
@@ -143,10 +125,10 @@ class HomeScreen extends React.Component {
           
         </Row>
         <Modal size={"lg"} isOpen={this.state["showModal"]}>
-        <ModalHeader toggle={this.toggle}>Nuevo evento</ModalHeader>
+        <ModalHeader toggle={this.toggle}>Nueva Escuela</ModalHeader>
         <ModalBody>
          
-          <NewEvent unmountMe={this.handleClose} />
+          <NewSchool unmountMe={this.handleClose} />
         </ModalBody>
  
       </Modal>
@@ -157,4 +139,4 @@ class HomeScreen extends React.Component {
 
 }
 
-export default HomeScreen;
+export default SchoolScreen;

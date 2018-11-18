@@ -34,7 +34,6 @@ class NewEvent extends React.Component {
         this.handleStartDateInput = this.handleStartDateInput.bind(this);
         this.handleEndDateInput = this.handleEndDateInput.bind(this);
 
-        this.deleteTeam = this.deleteTeam.bind(this);
         this.dismiss = this.dismiss.bind(this);
       }
 

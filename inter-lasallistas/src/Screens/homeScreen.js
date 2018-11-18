@@ -17,10 +17,9 @@ class HomeScreen extends React.Component {
       <Container>
         <br />
         <Row>
-          <br />
           <Col sm="8">
             <Row>
-            <Col sm="4">
+            <Col sm="6">
                 <a href="/sport" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
@@ -30,7 +29,7 @@ class HomeScreen extends React.Component {
                 </a>
               </Col>
               <br />
-              <Col sm="4">
+              <Col sm="6">
                 <a href="/court" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
@@ -39,24 +38,10 @@ class HomeScreen extends React.Component {
                   </div>
                 </a>
               </Col>
-              
-              <Col sm="4">
-                <a href="/school" className="thumbnail-red">
-                  <div className="card text-center thumb" >
-                    <div className="card-body"></div>
-                    <div className="card-body"><h5>Escuelas</h5></div>
-                    <div className="card-body"></div>
-                  </div>
-                </a>
-              </Col>
-              <br />
-              
-            <Row>
-         
-             
-            <br />
-
+           
             </Row>
+            <br/>
+            <Row>
             <Col sm="4">
               <a href="/sports/teams" className="thumbnail-red">
                 <div className="card text-center thumb"  >

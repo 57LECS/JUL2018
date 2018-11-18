@@ -13,6 +13,7 @@ import CalendarMenuScreen from './Screens/calendarMenuScreen';
 import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
 import NewTeam from './Components/newTeam';
+import SchoolScreen from './Screens/schoolScreen';
 import './index.css';
 import './lasallistas.css';
 
@@ -132,6 +133,7 @@ login()
               <Route path="/calendar/get" component={CalendarScreen} />
               <Route path="/court" component={CourtScreen} />
               <Route path="/calendar" component={CalendarMenuScreen} />
+              <Route path="/school" component={SchoolScreen} />
               <Route component={error} />
             </Switch>
           </BrowserRouter>
