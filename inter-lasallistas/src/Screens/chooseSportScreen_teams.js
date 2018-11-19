@@ -5,6 +5,17 @@ import {
 } from 'reactstrap';
 
 class ChooseSportScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    
+    this.state = {
+    };
+  }
+
+  componentWillMount() {
+    // alert('vengo de ' + this.props.params.id);
+  }
 
   render() {
     return (
@@ -16,7 +27,7 @@ class ChooseSportScreen extends React.Component {
             <a href="/teams/conf" className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
-                <div className="card-body"><h5>Ajedrez</h5></div>
+                <div className="card-body"><h5>Ajedréz</h5></div>
                 <div className="card-body"></div>
               </div>
             </a>

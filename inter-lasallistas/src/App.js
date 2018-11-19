@@ -125,8 +125,7 @@ login()
             <Switch>
               <Route path="/" component={EventScreen} exact  />
               <Route path="/home" component={HomeScreen} exact />
-              <Route path="/sports/teams" component={ChooseSportScreen} />
-              <Route path="/sports/results" component={ChooseSportScreenResults} />
+              <Route path="/sports/:id" component={ChooseSportScreen} />
               <Route path="/results" component={ResultScreen} />
               <Route path="/teams/conf" component={TeamScreen} />
               <Route path="/calendar/get" component={CalendarScreen} />
