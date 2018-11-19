@@ -13,6 +13,7 @@ import CalendarMenuScreen from './Screens/calendarMenuScreen';
 import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
 import SchoolScreen from './Screens/schoolScreen';
+import SportScreen from './Screens/sportScreen';
 import './index.css';
 import './lasallistas.css';
 
@@ -126,6 +127,7 @@ login()
               <Route path="/" component={EventScreen} exact  />
               <Route path="/home" component={HomeScreen} exact />
               <Route path="/sports/:id" component={ChooseSportScreen} />
+              <Route path="/newSport" component={SportScreen} />
               <Route path="/results" component={ResultScreen} />
               <Route path="/teams/conf" component={TeamScreen} />
               <Route path="/calendar/get" component={CalendarScreen} />
