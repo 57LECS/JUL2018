@@ -9,22 +9,22 @@ class Footer extends React.Component {
                 <Container>
                     <br />
                     <Row>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/bravos.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/power.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/comude.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/electrolit.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/ice.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
-                        <Col sm="2">
+                        <Col sm="2" xs="4">
                             <img src="../images/molten.png" alt="logo" style={{ height: '30px' }} />
                         </Col>
                     </Row>

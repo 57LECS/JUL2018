@@ -1,9 +1,19 @@
 // Fer
 import React from 'react';
 import {
+  Collapse,
   Navbar,
-  NavbarBrand
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
+
 
 import * as firebase from 'firebase'
 
@@ -16,23 +26,26 @@ class Navigation extends React.Component {
   }
 
 
-   logout()
-  {
-   
-    firebase.auth().signOut().then(function() {
+  logout() {
+
+    firebase.auth().signOut().then(function () {
       // Sign-out successful.
-    }).catch(function(error) {
+    }).catch(function (error) {
       // An error happened.
     });
-    
+
   }
-  
+
   render() {
     return (
       <div>
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/"><img src="../images/redsalle.png" alt="logo" style={{height: '50px'}} /></NavbarBrand>
-          <div style={{float:"right", cursor:"pointer"}} ><img onClick={this.logout} src="../images/exit.png" alt="salir" style={{height: '50px'}} /></div>
+        <Navbar color="dark" light expand="md">
+          <NavbarBrand href="/"><img src="../images/redsalle.png" alt="logo" style={{ height: '50px' }} /></NavbarBrand>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink><div style={{ float: "right", cursor: "pointer" }} ><span style={{color:"white"}}>Salir </span><img onClick={this.logout} src="../images/exit.png" alt="salir" style={{ height: '35px' }} /></div></NavLink>
+            </NavItem>
+          </Nav>
         </Navbar>
       </div>
     );
