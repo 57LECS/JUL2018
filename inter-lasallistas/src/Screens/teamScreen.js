@@ -16,13 +16,14 @@ class TeamScreen extends React.Component {
         this.state = {
           branches: [],
           schools:[],
-          sport: "voleibol de sala",
+          sport: this.props.match.params.id,
           teams:[],
           teamName:"",
           branch:"",
           university:""
         };
     
+        this.setState({sport: this.props.match.params.id});
         //bindings
         this.loadBranchesCombo = this.loadBranchesCombo.bind(this);
         this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
@@ -44,7 +45,6 @@ class TeamScreen extends React.Component {
   
     console.log("teamScreamDidMount");
     
-    this.setState({sport: this.props.match.params.id});
     this.loadBranchesCombo();
     this.loadSchoolsCombo();
     this.loadTeamsTable();
