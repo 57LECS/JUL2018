@@ -44,7 +44,7 @@ class TeamScreen extends React.Component {
   
     console.log("teamScreamDidMount");
     
-    this.setState({sport:"voleibol de sala"});
+    this.setState({sport: this.props.match.params.id});
     this.loadBranchesCombo();
     this.loadSchoolsCombo();
     this.loadTeamsTable();

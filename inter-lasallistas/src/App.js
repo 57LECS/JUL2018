@@ -128,8 +128,8 @@ login()
               <Route path="/home" component={HomeScreen} exact />
               <Route path="/sports/:id" component={ChooseSportScreen} />
               <Route path="/newSport" component={SportScreen} />
-              <Route path="/results" component={ResultScreen} />
-              <Route path="/teams/conf" component={TeamScreen} />
+              <Route path="/results/:id" component={ResultScreen} />
+              <Route path="/teams/:id" component={TeamScreen} />
               <Route path="/calendar/get" component={CalendarScreen} />
               <Route path="/court" component={CourtScreen} />
               <Route path="/calendar" component={CalendarMenuScreen} />

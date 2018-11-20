@@ -7,7 +7,8 @@ class ResultScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      games: []
+      games: [],
+      title: ''
     };
 
     //bindings
@@ -16,6 +17,9 @@ class ResultScreen extends React.Component {
 
   componentDidMount()
   {
+
+    this.setState({title: 'Resultados de ' + this.props.match.params.id})
+
     const firestore = firebase.firestore();
     const settings = {/* your settings... */ timestampsInSnapshots: true};
     firestore.settings(settings);
@@ -37,7 +41,7 @@ class ResultScreen extends React.Component {
     return (
       <div>
         <div className="container">
-          <h1>Pantalla Resultados</h1>
+          <h3>{this.state.title}</h3>
           <div className="row">
             <div col="col-md-6">
 

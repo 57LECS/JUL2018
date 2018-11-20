@@ -7,14 +7,15 @@ import {
 class ChooseSportScreen extends React.Component {
   constructor(props) {
     super(props);
-    
-    
+    // console.log(this.props.match.params.id);    
+
     this.state = {
+      ejemploRuta: ''
     };
   }
 
-  componentWillMount() {
-    // alert('vengo de ' + this.props.params.id);
+  componentDidMount() {
+    this.setState({ ejemploRuta: "/" + this.props.match.params.id + "/" })
   }
 
   render() {
@@ -24,7 +25,7 @@ class ChooseSportScreen extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href="/teams/conf" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'ajedrez'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Ajedréz</h5></div>
@@ -34,7 +35,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/teams/conf" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'atletismo'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Atletismo</h5></div>
@@ -44,7 +45,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/teams/conf" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'basquetbol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Basquetbol</h5></div>
@@ -57,7 +58,7 @@ class ChooseSportScreen extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href="/beisbol" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'beisbol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Beisbol</h5></div>
@@ -67,7 +68,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/soccerap" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'rapido'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Futbol rápido</h5></div>
@@ -77,7 +78,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/soccer" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'soccer'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Futbol Soccer</h5></div>
@@ -90,7 +91,7 @@ class ChooseSportScreen extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href="/hockey" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'hockey'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Hockey sobre pasto</h5></div>
@@ -100,7 +101,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/tenis" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'tenis'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Tenis</h5></div>
@@ -110,7 +111,7 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href="/tocho" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'tocho'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Tocho bandera</h5></div>
@@ -122,7 +123,7 @@ class ChooseSportScreen extends React.Component {
         <br />
         <Row>
           <Col sm="4">
-            <a href="/voleibol" className="thumbnail-blue">
+            <a href={this.state.ejemploRuta + 'voleibol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Voleibol</h5></div>
