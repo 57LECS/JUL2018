@@ -1,5 +1,6 @@
 // Fer
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'reactstrap';
 
 class CalendarMenuScreen extends React.Component {
@@ -14,23 +15,23 @@ class CalendarMenuScreen extends React.Component {
             <br />
             <Row>
             <Col sm="6">
-              <a href="/calendar/new" className="thumbnail-red">
+              <Link to="/calendar/new" className="thumbnail-red">
                 <div className="card text-center thumb" >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Generar calendario</h5></div>
                   <div className="card-body"></div>
                 </div>
-              </a>
+              </Link>
             </Col>
             <br />
             <Col sm="6">
-              <a href="/calendar/get" className="thumbnail-red" >
+              <Link to="/calendar/get" className="thumbnail-red" >
                 <div className="card text-center thumb" >
                   <div className="card-body"></div>
                   <div className="card-body"><h5>Ver calendario</h5></div>
                   <div className="card-body"></div>
                 </div>
-              </a>
+              </Link>
             </Col>
 
             </Row>

@@ -32,19 +32,19 @@ class SportScreen extends React.Component {
                 <td style={{ textAlign: "center" }}><Button color="info">Editar</Button>{' '}<Button color="danger">Eliminar</Button></td>
               </tr>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">2</th>
                 <td>Fútbol soccer</td>
                 <td>soccer</td>
                 <td style={{ textAlign: "center" }}><Button color="info">Editar</Button>{' '}<Button color="danger">Eliminar</Button></td>
               </tr>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">3</th>
                 <td>Voleibol</td>
                 <td>voleibol</td>
                 <td style={{ textAlign: "center" }}><Button color="info">Editar</Button>{' '}<Button color="danger">Eliminar</Button></td>
               </tr>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">4</th>
                 <td>Basquetbol varonil</td>
                 <td>basquet</td>
                 <td style={{ textAlign: "center" }}><Button color="info">Editar</Button>{' '}<Button color="danger">Eliminar</Button></td>
