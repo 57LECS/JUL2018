@@ -5,6 +5,7 @@ import {
     Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText,Table
 } from 'reactstrap';
 import * as firebase from 'firebase'
+import ModalScreen from '../Components/newTeam'
 
 
 
@@ -23,17 +24,10 @@ class TeamScreen extends React.Component {
           university:""
         };
     
-        this.setState({sport: this.props.match.params.id});
         //bindings
-        this.loadBranchesCombo = this.loadBranchesCombo.bind(this);
-        this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
         this.loadTeamsTable = this.loadTeamsTable.bind(this);
-        this.submitTeam = this.submitTeam.bind(this);
-
-        this.handleUniversityCombo = this.handleUniversityCombo.bind(this);
-        this.handleBranchCombo = this.handleBranchCombo.bind(this);
-        this.handleTeamInput = this.handleTeamInput.bind(this);
-
+        
+       
         this.deleteTeam = this.deleteTeam.bind(this);
       }
     
@@ -43,10 +37,6 @@ class TeamScreen extends React.Component {
   componentDidMount()
   {
   
-    console.log("teamScreamDidMount");
-    
-    this.loadBranchesCombo();
-    this.loadSchoolsCombo();
     this.loadTeamsTable();
   }
   
@@ -56,25 +46,6 @@ class TeamScreen extends React.Component {
       alert("delete")
       
   }
-  handleBranchCombo(event)
-  {
-    this.setState({branch: event.target.value});
-
-  }  
-  handleTeamInput(event)
-  {
-    this.setState({teamName: event.target.value});
-
-  }
-
-  
-  handleUniversityCombo(event)
-  {
-    this.setState({university: event.target.value});
-
-  }
-
-
   loadTeamsTable()
   {
 
@@ -105,132 +76,17 @@ class TeamScreen extends React.Component {
 
   }
 
-
-  submitTeam()
-  { 
-    const firestore = firebase.firestore();
-    const settings = {/* your settings... */ timestampsInSnapshots: true};
-    firestore.settings(settings);
-    var sport = this.state["sport"];
-    var university = this.state["university"];
-    var teamName = this.state["teamName"];
-    var branch = this.state["branch"];
-    var that = this;
-       
-    if(teamName == "")
-    {
-        alert("Ingrese un nombre de equipo!")
-        return;
-    }
-
-    firestore.collection('eventos').doc('oct2018').collection('equipos').doc().set({
-        nombre: teamName,
-        rama: branch,
-        escuela: university,
-        deporte: sport
-    })
-    .then(function() {
-        console.log("Document successfully written!");
-        this.state["teamName"] = "";
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });    
-    
-    // });
-
-  }
-
-
-  loadBranchesCombo()
-  { 
-    const firestore = firebase.firestore();
-    const settings = {/* your settings... */ timestampsInSnapshots: true};
-    firestore.settings(settings);
-    var arr = this.state["branches"];
-
-    var that = this;
-         
-    firestore.collection('eventos').doc('oct2018').collection('deportes').where("nombre","==",this.state["sport"]).get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        arr =  doc.data().ramas;
-        that.state["branch"] = arr[0]
-        that.setState({branches:arr});
-        });
-    
-    });
-     
- }
-
- loadSchoolsCombo()
- { 
-   const firestore = firebase.firestore();
-   const settings = {/* your settings... */ timestampsInSnapshots: true};
-   firestore.settings(settings);
-   var arr = this.state["branches"];
-
-   var that = this;
-        
-   firestore.collection('eventos').doc('oct2018').collection('universidades').get().then(function(querySnapshot) {
-     querySnapshot.forEach(function(doc) {
-       // doc.data() is never undefined for query doc snapshots
-       //console.log("DD")
-      // console.log(doc.id, " => ", doc.data().nombre_corto);
-       arr.push(  doc.data().nombre_corto);
-       that.state["university"] = arr[0]
-       that.setState({schools:arr});
-       });
-       
-   
-   });
-    
-}
-
-
   
     render() {
         return (
             <Container>
-                <br />
+                <Row>   
+                <Col md="10"><h4>Equipos de {this.state["sport"]}</h4></Col>
+                <Col md="2"><ModalScreen  idSport={this.props.match.params.id} /></Col>
+                </Row>
                 <Row>
-                    <Col md="6">
-                        <Form>
-                            <FormGroup>
-                                <Label for="exampleEmail">Deporte:</Label>
-                                <Input type="text" name="email" id="exampleEmail" value={this.state["sport"]} disabled />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="txtTeamName">Nombre del equipo:</Label>
-                                <Input type="text" name="txtTeamName" value={this.state["teamName"]} onChange={this.handleTeamInput} id="txtTeamName" placeholder="" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="cmbBranch">Rama</Label>
-                                <Input type="select" name="selectBranch" value={this.state["branch"]}  onChange={this.handleBranchCombo} id="cmbBranch">
-                                {this.state["branches"].map(function (x, i = 1) { 
-                                return (
-                                <option value={x} key={"cmbBranch" + i}>{x} </option>
-                                 )})}
-                                </Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="cmbSchool">Universidad</Label>
-                                <Input type="select" value={this.state["university"]}  onChange={this.handleUniversityCombo} name="selectSchool" id="cmbSchool">
-                                {this.state["schools"].map(function (x, i = 1) { 
-                                return (
-                                <option value={x} key={"cmbSchool" + i}>{x}
-                                
-                                </option>
-              
-              
-                                 )})}
-                                </Input>
-                            </FormGroup>
-                            <Button onClick={this.submitTeam}>Agregar</Button>
-                        </Form>
-                    </Col>
-                    <Col md="6">
-                    <Table bordered>
+                <Col md="12">
+                <Table bordered>
                 <tbody>
                   <tr>
                     <th scope="row"> </th>
