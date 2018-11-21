@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using Firebase.Core;
+using Firebase.CloudFirestore;
 
 namespace Lasallistas.iOS
 {
@@ -17,11 +18,15 @@ namespace Lasallistas.iOS
             set;
         }
 
+        public static Firestore dbFirestore { get; set; }
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             App.Configure();
+
+            dbFirestore = Firestore.SharedInstance;
 
             return true;
         }
