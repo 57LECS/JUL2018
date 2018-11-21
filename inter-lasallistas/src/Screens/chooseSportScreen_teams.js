@@ -3,6 +3,7 @@ import React from 'react';
 import {
   Container, Row, Col
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class ChooseSportScreen extends React.Component {
   constructor(props) {
@@ -25,66 +26,66 @@ class ChooseSportScreen extends React.Component {
         <Row>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'ajedrez'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'ajedrez'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Ajedréz</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'atletismo'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'atletismo'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Atletismo</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'basquetbol'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'basquetbol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Basquetbol</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
         </Row>
         <br />
         <Row>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'beisbol'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'beisbol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Beisbol</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'rapido'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'rapido'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Futbol rápido</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'soccer'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'soccer'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Futbol Soccer</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
         </Row>
         <br />
@@ -101,35 +102,35 @@ class ChooseSportScreen extends React.Component {
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'tenis'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'tenis'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Tenis</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
           <br />
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'tocho'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'tocho'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Tocho bandera</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
         </Row>
         <br />
         <Row>
           <Col sm="4">
-            <a href={this.state.ejemploRuta + 'voleibol'} className="thumbnail-blue">
+            <Link to={this.state.ejemploRuta + 'voleibol'} className="thumbnail-blue">
               <div className="card text-center thumb" >
                 <div className="card-body"></div>
                 <div className="card-body"><h5>Voleibol</h5></div>
                 <div className="card-body"></div>
               </div>
-            </a>
+            </Link>
           </Col>
         </Row>
         <br /><br /><br /><br />
