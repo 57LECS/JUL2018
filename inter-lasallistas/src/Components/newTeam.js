@@ -22,10 +22,11 @@ class NewTeam extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.loadBranchesCombo = this.loadBranchesCombo.bind(this);
     this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
-   // this.submitTeam = this.submitTeam.bind(this);
+    this.submitTeam = this.submitTeam.bind(this);
     this.handleUniversityCombo = this.handleUniversityCombo.bind(this);
     this.handleBranchCombo = this.handleBranchCombo.bind(this);
     this.handleTeamInput = this.handleTeamInput.bind(this);
+    
 
 
         
@@ -82,11 +83,12 @@ submitTeam(event)
       deporte: sport
   })
   .then(function() {
-      console.log("Document successfully written!");
-      this.state["teamName"] = "";
+      that.state["teamName"] = "";
+      that.toggle();
   })
   .catch(function(error) {
-      console.error("Error writing document: ", error);
+    alert("Error");
+    that.toggle();
   });    
   
   // });
@@ -151,13 +153,21 @@ toggle() {
 }
 
   render() {
+    var that = this;
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
-
+    function EditButton(props) {
+      const isEdit = props.isEdit;
+      if (isEdit) {
+        return  <Button  onClick={that.toggle} style={{ marginBottom: "8px" }}  color="primary">Editar</Button>
+      }
+      return <Button style={{ marginBottom: "10px" }} onClick={that.toggle} color="success">Agregar equipo</Button>
+    }
+    
     return (
         <div>
-            <Button style={{ marginBottom: "10px" }} onClick={this.toggle} color="success">Agregar equipo</Button>
+            <EditButton isEdit={this.props.isEdit}  onClick={this.toggle}/>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle} close={closeBtn}>Agregar Deporte</ModalHeader>
+                <ModalHeader toggle={this.toggle} close={closeBtn}>Agregar equipo</ModalHeader>
                 <ModalBody>
                   <Form>
                             <FormGroup>
@@ -190,13 +200,27 @@ toggle() {
                                  )})}
                                 </Input>
                             </FormGroup>
-                            <Button>Agregar</Button>
+                            <FormGroup tag="fieldset">
+                            <Label for="cmbSchool">Serie</Label>
+                            <FormGroup check>
+                              <Label check>
+                                <Input type="radio" name="radio1" />{' '}
+                                Serie A
+                              </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                              <Label check>
+                                <Input type="radio" name="radio1" />{' '}
+                                Serie B
+                              </Label>
+                            </FormGroup>
+                          </FormGroup>
                         </Form>
 
                 </ModalBody>
                 <ModalFooter>
                     <Button color="secondary" onClick={this.toggle}>Cancelar</Button>{' '}
-                    <Button color="primary" onClick={() => { this.props.submitTeam() }}>Agregar</Button>
+                    <Button color="primary" onClick={() => { this.submitTeam() }}>Agregar</Button>
                 </ModalFooter>
             </Modal>
         </div>

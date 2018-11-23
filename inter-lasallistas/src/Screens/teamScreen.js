@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import * as firebase from 'firebase'
 import ModalScreen from '../Components/newTeam'
+import TeamRow from '../RowModels/teamRow'
 
 
 
@@ -66,6 +67,7 @@ class TeamScreen extends React.Component {
         obj.nombre = doc.data().nombre;
         obj.rama = doc.data().rama;
         obj.escuela = doc.data().escuela;
+        obj.deporte = doc.data().deporte;
         arr.push(obj );
       console.log(obj)
         that.setState({teams:arr});
@@ -82,7 +84,7 @@ class TeamScreen extends React.Component {
             <Container>
                 <Row>   
                 <Col md="10"><h4>Equipos de {this.state["sport"]}</h4></Col>
-                <Col md="2"><ModalScreen  idSport={this.props.match.params.id} /></Col>
+                <Col md="2"><ModalScreen  idSport={this.props.match.params.id}  isEdit={false} /></Col>
                 </Row>
                 <Row>
                 <Col md="12">
@@ -93,28 +95,14 @@ class TeamScreen extends React.Component {
                     <th className="text-center">Equipo</th>
                     <th className="text-center">Rama</th>
                     <th className="text-center">Escuela</th>
+                    <th className="text_center">Rama</th>
                     <th className="text-center">Acciones</th>
-                  </tr>
-                  {this.state["teams"].map(function (x, i = 1,that = this) { 
+                  </tr> 
+                  {this.state["teams"].map(function (x, i = 1,idSport=this.props.match.params.id ) { 
                                 return (
-                                <tr  key={x.id}>
-                                    <td className="text-center">{++i}</td>
-                                    <td className="text-center">{x.nombre}</td>
-                                    <td className="text-center">{x.rama}</td>
-                                    <td className="text-center">{x.escuela}</td>
-                                    <td class="text-center">
-                                        <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                                        <a href="#" class="btn btn-danger btn-xs" onClick={that.deleteTeam}>
-                                        <span class="glyphicon glyphicon-remove"></span> Del</a>
-                                    </td>
-                 
-
-                                </tr>
-              
-              
+                                <TeamRow key={x.id} x={x}i={++i} idSport={idSport} isEdit={true} />                              
                                  )})}
-                  <tr>
-                  </tr>
+                 
                   </tbody>
                   </Table>
               
@@ -122,7 +110,6 @@ class TeamScreen extends React.Component {
                    
 
                 </Row>
-                <br /><br /><br /><br />
 
             </Container>
         );
