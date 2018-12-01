@@ -5,7 +5,7 @@ import {
     Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText,Table
 } from 'reactstrap';
 import * as firebase from 'firebase'
-import ModalScreen from '../Components/newTeam'
+import TeamModalScreen from '../Components/newTeam'
 import TeamRow from '../RowModels/teamRow'
 
 
@@ -60,6 +60,8 @@ class TeamScreen extends React.Component {
          
     firestore.collection('eventos').doc('oct2018').collection('equipos').where("deporte","==",this.state["sport"]).onSnapshot(function(querySnapshot) {
         arr = [];
+        
+        that.setState({teams:arr});
         querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         var obj = {}
@@ -68,6 +70,7 @@ class TeamScreen extends React.Component {
         obj.rama = doc.data().rama;
         obj.escuela = doc.data().escuela;
         obj.deporte = doc.data().deporte;
+        obj.serie = doc.data().serie;
         arr.push(obj );
       console.log(obj)
         that.setState({teams:arr});
@@ -84,7 +87,8 @@ class TeamScreen extends React.Component {
             <Container>
                 <Row>   
                 <Col md="10"><h4>Equipos de {this.state["sport"]}</h4></Col>
-                <Col md="2"><ModalScreen  idSport={this.props.match.params.id}  isEdit={false} /></Col>
+                <Col md="2"><TeamModalScreen x={{nombre:"", rama:"", escuela:""}
+}  idSport={this.props.match.params.id}  isEdit={false} /></Col>
                 </Row>
                 <Row>
                 <Col md="12">
@@ -95,7 +99,7 @@ class TeamScreen extends React.Component {
                     <th className="text-center">Equipo</th>
                     <th className="text-center">Rama</th>
                     <th className="text-center">Escuela</th>
-                    <th className="text_center">Rama</th>
+                    <th className="text_center">Serie</th>
                     <th className="text-center">Acciones</th>
                   </tr> 
                   {this.state["teams"].map(function (x, i = 1,idSport=this.props.match.params.id ) { 

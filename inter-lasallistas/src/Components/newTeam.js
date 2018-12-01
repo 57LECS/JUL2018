@@ -14,9 +14,10 @@ class NewTeam extends React.Component {
           schools:[],
           sport: this.props.idSport,
           teams:[],
-          teamName:"",
+          teamName: this.props.x.nombre,
           branch:"",
-          university:""
+          university:this.props.escuela,
+          series:"Serie A"
     };
 
     this.toggle = this.toggle.bind(this);
@@ -24,6 +25,7 @@ class NewTeam extends React.Component {
     this.loadSchoolsCombo = this.loadSchoolsCombo.bind(this);
     this.submitTeam = this.submitTeam.bind(this);
     this.handleUniversityCombo = this.handleUniversityCombo.bind(this);
+    this.handleSeriesCombo = this.handleSeriesCombo.bind(this);
     this.handleBranchCombo = this.handleBranchCombo.bind(this);
     this.handleTeamInput = this.handleTeamInput.bind(this);
     
@@ -56,6 +58,11 @@ handleUniversityCombo(event)
   this.setState({university: event.target.value});
 
 }
+handleSeriesCombo(event)
+{
+  this.setState({series: event.target.value});
+
+}
 
 
 
@@ -68,6 +75,7 @@ submitTeam(event)
   var university = this.state["university"];
   var teamName = this.state["teamName"];
   var branch = this.state["branch"];
+  var series = this.state["series"];
   var that = this;
      
   if(teamName == "")
@@ -80,7 +88,8 @@ submitTeam(event)
       nombre: teamName,
       rama: branch,
       escuela: university,
-      deporte: sport
+      deporte: sport,
+      serie: series
   })
   .then(function() {
       that.state["teamName"] = "";
@@ -110,6 +119,7 @@ loadBranchesCombo()
       arr =  doc.data().ramas;
       that.state["branch"] = arr[0]
       that.setState({branches:arr});
+      that.setState({university:this.props.x.escuela})
       });
   
   });
@@ -200,21 +210,18 @@ toggle() {
                                  )})}
                                 </Input>
                             </FormGroup>
-                            <FormGroup tag="fieldset">
-                            <Label for="cmbSchool">Serie</Label>
-                            <FormGroup check>
-                              <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Serie A
-                              </Label>
+                            
+                            <FormGroup>
+                                <Label for="cmbSeries">Serie</Label>
+                                <Input type="select" value={this.state["series"]}  onChange={this.handleSeriesCombo} name="selectSeries" id="cmbSeries">
+                                
+                                <option value={"Serie A"}>Serie A</option>
+                                <option value={"Serie B"}>Serie B</option>
+              
+              
+                                </Input>
                             </FormGroup>
-                            <FormGroup check>
-                              <Label check>
-                                <Input type="radio" name="radio1" />{' '}
-                                Serie B
-                              </Label>
-                            </FormGroup>
-                          </FormGroup>
+                            
                         </Form>
 
                 </ModalBody>

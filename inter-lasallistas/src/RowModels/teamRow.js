@@ -61,9 +61,11 @@ class TeamRow extends React.Component {
                 <td className="text-center">{this.props.x.nombre}</td>
                 <td className="text-center">{this.props.x.rama}</td>
                 <td className="text-center">{this.props.x.escuela}</td>
+                <td className="text-center">{this.props.x.serie}</td>
+                
                 <td className="text-center">
                     <div>
-                    <ModalScreen  color={"primary"} idSport={this.props.x.deporte} isEdit={this.props.isEdit} >Editar</ModalScreen> {' '}
+                    <ModalScreen  color={"primary"} x={this.props.x} idSport={this.props.x.deporte} isEdit={this.props.isEdit} >Editar</ModalScreen> {' '}
                     <Button  color={"danger"} onClick={this.showConfirmDeleteModal}> Borrar</Button>
                     </div>
                     <Modal size={"sm"} isOpen={this.state["showModal"]}>
