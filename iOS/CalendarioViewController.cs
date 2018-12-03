@@ -45,6 +45,7 @@ namespace Lasallistas.iOS
                 //El objeto de Cancha.
                 Cancha cancha = new Cancha();
 
+
                 long canchaId; 
                 if (!long.TryParse($"{dictPartido["cancha_id"]}", out canchaId)) {
 
@@ -52,29 +53,79 @@ namespace Lasallistas.iOS
                 }
 
                 cancha.Id_Cancha = canchaId;
-                cancha.Nombre = $"{dictPartido["cancha_nombre"]}";
+
+                cancha.Nombre = $"{dictPartido["Cancha"]}";
+
+                //El objeto de Deporte.
+                Deporte deporte = new Deporte(0, $"{dictPartido["Deporte"]}", 0);
+
 
                 //El objeto de Universidad 1.
                 Universidad universidad1 = new Universidad();
-                universidad1.Nombre = $"{dictPartido["equipo1"]}";
+                universidad1.Nombre = $"{dictPartido["Equipo1"]}";
 
                 //El objeto de Universidad 2.
                 Universidad universidad2 = new Universidad();
-                universidad2.Nombre = $"{dictPartido["equipo2"]}";
+                universidad2.Nombre = $"{dictPartido["Equipo2"]}";
 
+
+                //Decisión de tipo de Rama.
+                RamasEnum ramasEnum = new RamasEnum();
+
+                switch ($"{dictPartido["Rama"]}") {
+
+                    case "Varonil":
+
+                        ramasEnum = RamasEnum.Varonil;
+                        break;
+
+                    case "Femenil":
+
+                        ramasEnum = RamasEnum.Femenil;
+                        break;
+
+                    case "Mixto":
+
+                        ramasEnum = RamasEnum.Mixto;
+                        break;
+
+                    default:
+
+                        ramasEnum = RamasEnum.NA;
+                        break;
+                }
 
                 //El objeto de Equipo 1.
-                Equipo equipo1 = new Equipo(0, universidad1, null, RamasEnum.NA);
+                Equipo equipo1 = new Equipo(0, universidad1, deporte, ramasEnum);
 
                 //El objeto de Equipo 2.
-                Equipo equipo2 = new Equipo(0, universidad2, null, RamasEnum.NA);
+                Equipo equipo2 = new Equipo(0, universidad2, deporte, ramasEnum);
 
 
-                //Resultados. Esto deberá venir de Firebase.
-                string[] results = { "0-0", "3-1" };
 
-                Partido partido = new Partido(cancha, equipo1, equipo2, equipo2, results);
 
+                //Resultados.
+                NSArray results = dictPartido["Resultado"] as NSArray;
+
+
+                List<string> lstTemp = new List<string>();
+                for (uint i = 0; i < results.Count; i++) {
+
+                    lstTemp.Add(results.GetItem<NSObject>(i).ToString());
+
+                }
+
+                string[] resultsArray = lstTemp.ToArray();
+
+                Partido partido;
+                if ($"{dictPartido["Ganador"]}" == equipo1.Universidad.Nombre) {
+
+                    partido = new Partido(cancha, equipo1, equipo2, equipo1, resultsArray);
+                }
+                else {
+
+                    partido = new Partido(cancha, equipo1, equipo2, equipo2, resultsArray);
+                }
 
                 lstPartidos.Add(partido);
 
