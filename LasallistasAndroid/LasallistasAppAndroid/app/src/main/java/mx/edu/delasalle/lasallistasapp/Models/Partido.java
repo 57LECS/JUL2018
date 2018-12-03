@@ -1,82 +1,92 @@
 package mx.edu.delasalle.lasallistasapp.Models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Axel on 24/10/2018
  */
 public class Partido {
-    private Cancha Cancha;
-    private Deporte Deporte;
-    private Equipo Equipo1;
-    private Equipo Equipo2;
-    private Equipo Ganador;
-    private Enums.RamasEnum Rama;
-    private String[] Resultado;
-    private Date Fecha;
+    private String Cancha;
+    private String Deporte;
+    private String Equipo1;
+    private String Equipo2;
+    private String Ganador;
+    private String Rama;
+    private List<String> Resultado;
+    private String Fecha;
+    private int TipoPartido;
 
-    public mx.edu.delasalle.lasallistasapp.Models.Cancha getCancha() {
+    public String getCancha() {
         return Cancha;
     }
 
-    public void setCancha(mx.edu.delasalle.lasallistasapp.Models.Cancha cancha) {
+    public void setCancha(String cancha) {
         Cancha = cancha;
     }
 
-    public mx.edu.delasalle.lasallistasapp.Models.Deporte getDeporte() {
+    public String getDeporte() {
         return Deporte;
     }
 
-    public void setDeporte(mx.edu.delasalle.lasallistasapp.Models.Deporte deporte) {
+    public void setDeporte(String deporte) {
         Deporte = deporte;
     }
 
-    public Equipo getEquipo1() {
+    public String getEquipo1() {
         return Equipo1;
     }
 
-    public void setEquipo1(Equipo equipo1) {
+    public void setEquipo1(String equipo1) {
         Equipo1 = equipo1;
     }
 
-    public Equipo getEquipo2() {
+    public String getEquipo2() {
         return Equipo2;
     }
 
-    public void setEquipo2(Equipo equipo2) {
+    public void setEquipo2(String equipo2) {
         Equipo2 = equipo2;
     }
 
-    public Equipo getGanador() {
+    public String getGanador() {
         return Ganador;
     }
 
-    public void setGanador(Equipo ganador) {
+    public void setGanador(String ganador) {
         Ganador = ganador;
     }
 
-    public Enums.RamasEnum getRama() {
+    public String getRama() {
         return Rama;
     }
 
-    public void setRama(Enums.RamasEnum rama) {
+    public void setRama(String rama) {
         Rama = rama;
     }
 
-    public String[] getResultado() {
+    public List<String> getResultado() {
         return Resultado;
     }
 
-    public void setResultado(String[] resultado) {
+    public void setResultado(List<String> resultado) {
         Resultado = resultado;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         Fecha = fecha;
+    }
+
+    public int getTipoPartido() {
+        return TipoPartido;
+    }
+
+    public void setTipoPartido(int tipoPartido) {
+        TipoPartido = tipoPartido;
     }
 
 }

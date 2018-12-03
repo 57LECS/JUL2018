@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import mx.edu.delasalle.lasallistasapp.Calendar.CalendarFragment;
+import mx.edu.delasalle.lasallistasapp.Home.HomeFragment;
 import mx.edu.delasalle.lasallistasapp.Map.MapFragment;
 import mx.edu.delasalle.lasallistasapp.Utilities.ActivitiesUtils;
 import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_home:
+                                setFragment(new HomeFragment(),ActivitiesUtils.HOME);
                                 break;
                             case R.id.action_calendar:
                                 setFragment(new CalendarFragment(),ActivitiesUtils.CALENDAR);
@@ -42,11 +44,11 @@ public class MainActivity extends BaseActivity {
                                 break;
                             case R.id.action_medals:
                                 break;
-
                         }
                         return true;
                     }
                 });
+        bottomBar.setSelectedItemId(R.id.action_home);
     }
     public void setFragment(Fragment fragment, String tag) {
         ActivitiesUtils.addFragmentToActivity(this, getSupportFragmentManager(), fragment, mainPlaceholder.getId(), tag);

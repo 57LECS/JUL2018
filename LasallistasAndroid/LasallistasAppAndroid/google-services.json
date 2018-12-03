@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "156946123076",
+    "firebase_url": "https://lasallistasapp.firebaseio.com",
+    "project_id": "lasallistasapp",
+    "storage_bucket": "lasallistasapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156946123076:android:72b9af9abef5c10f",
+        "android_client_info": {
+          "package_name": "mx.edu.delasalle.lasallistasapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156946123076-pjmn7hqllmpftg77pgcrdjc4j5vbvsts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.edu.delasalle.lasallistasapp",
+            "certificate_hash": "7aabc10117ed4d50b97719b19bfc3fd1113723f1"
+          }
+        },
+        {
+          "client_id": "156946123076-kv5tu35c46as6ssl44flcc31tb14srms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5m9h-Pa_CAMS1ohKtZONFtr2ClX0iYA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156946123076-kv5tu35c46as6ssl44flcc31tb14srms.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156946123076-bbft2csc45hf3e12uv3ku8bul24rophj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.udlsbFTI.Lasallistas"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,67 +1,62 @@
-package mx.edu.delasalle.lasallistasapp.Calendar;
+package mx.edu.delasalle.lasallistasapp.Home;
 
-import android.content.Intent;
+/**
+ * Created by Axel on 14/11/2018
+ */
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.gson.Gson;
-
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import mx.edu.delasalle.lasallistasapp.Models.Partido;
-import mx.edu.delasalle.lasallistasapp.Second.SecondActivity;
-import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
-
 import mx.edu.delasalle.lasallistasapp.R;
+import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
 
 /**
  * Created by Axel on 29/10/2018
  */
-public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     BaseActivity activity;
     public  static List<Partido> lstPartidos;
+    int tipoPartido = 0;
     Partido partido;
-
-    public CalendarAdapter(BaseActivity activity, List<Partido>lstPartidos){
+    public HomeAdapter(BaseActivity activity, List<Partido>lstPartidos){
         this.lstPartidos=lstPartidos;
         this.activity=activity;
-
     }
-    public CalendarAdapter(){
+    public HomeAdapter(){
 
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View calendarView  = LayoutInflater.from(parent.getContext()).inflate(R.layout.match_list,parent,false);
-        return new CalendarAdapter.MyViewHolder(calendarView);
+        return new HomeAdapter.MyViewHolder(calendarView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         partido = lstPartidos.get(position);
-        holder.partidoActual = partido;
         holder.txvHour.setText("10:00");
         holder.txvPitch.setText(partido.getCancha());
         holder.txvSport.setText(partido.getDeporte());
-        if(partido.getTipoPartido() == 0 )
+       /* if(tipoPartido == 0 )
         {
-            List<String> resultado = partido.getResultado();
-            holder.txvScore1.setText(resultado.get(0));
-            holder.txvScore2.setText(resultado.get(2));
+            String[] resultado = partido.getResultado();
+            holder.txvScore1.setText(resultado[0]);
+            holder.txvScore2.setText(resultado[2]);
         }
         else
-        {
+        {*/
             holder.txvScore1.setText("V");
             holder.txvScore2.setText("S");
-        }
+      //  }
 
         holder.txvTeam1.setText(partido.getEquipo1());
         holder.txvTeam2.setText(partido.getEquipo2());
@@ -73,11 +68,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
-  /*      @BindView(R.id.imgEquipo1)
-        CircularImageView imgTeam1;
-        @BindView(R.id.imgEquipo2)
-        CircularImageView imgTeam2;*/
         @BindView(R.id.txvEquipo1)
         TextView txvTeam1;
         @BindView(R.id.txvEquipo2)
@@ -92,19 +82,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
         TextView txvHour;
         @BindView(R.id.txvCancha)
         TextView txvPitch;
-        public Partido partidoActual;
         public MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
-        @OnClick({R.id.txvEquipo1,R.id.txvEquipo2,R.id.txvScoreEquipo1,R.id.txvScoreEquipo2,R.id.txvCancha,R.id.txvHora,R.id.txvDeporte})
-        public void goToDetail(){
-            Intent i = new Intent(activity,SecondActivity.class);
-            Gson gson = new Gson();
-            i.putExtra("Partido", gson.toJson(partidoActual));
-            activity.startActivity(i);
-        }
-
-
     }
 }

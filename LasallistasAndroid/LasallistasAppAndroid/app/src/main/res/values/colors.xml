@@ -6,4 +6,6 @@
     <color name="white">#FFFF</color>
     <color name="BlueSalle">#010084</color>
     <color name="redSalle">#a4041c</color>
+    <color name="grayBackground">#b3b3b3</color>
+
 </resources>

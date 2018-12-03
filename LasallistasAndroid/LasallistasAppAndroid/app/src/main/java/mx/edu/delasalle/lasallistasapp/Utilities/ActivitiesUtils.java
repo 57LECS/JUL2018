@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 import static android.content.Context.MODE_PRIVATE;
 
 /**
- * Created by dianacch on 14/02/18.
+ * Created by Amalip on 14/02/18.
  */
 
 public class ActivitiesUtils {
@@ -35,7 +35,7 @@ public class ActivitiesUtils {
         STRING, INTEGER, FLOAT, BOOLEAN
     }
 
-    public static final String HOME = "Home",CALENDAR = "Calendar", MEDALS = "Medals",MAP = "Map";
+    public static final String HOME = "Home",CALENDAR = "Calendar", MEDALS = "Medals",MAP = "Map",MATCH_DETAIL = "MatchDetail";
 
 
     //This method will replace the Fragment that is showing
@@ -50,7 +50,7 @@ public class ActivitiesUtils {
         // and the fragment that will be shown
         if (!activity.isFinishing()&& !activity.isDestroyed()) {
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            //if(!tag.equals(ITEMLIST) && !tag.equals(REQUEST_DETAIL_HERO) )
+            if(!tag.equals(MATCH_DETAIL) )
                 transaction.addToBackStack(tag);
             /*if(!tag.equals(REQUEST_DETAIL_HERO))
                 transaction.addToBackStack(tag);*/
@@ -167,7 +167,8 @@ public class ActivitiesUtils {
     }
 
     public static String setDateFormat(Date date) {
-        SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Locale locale = new Locale("es", "MX");
+        SimpleDateFormat smp = new SimpleDateFormat("dd MMMM yyyy", locale);
         return smp.format(date);
     }
     public static boolean validarEmail(String email) {
@@ -183,30 +184,7 @@ public class ActivitiesUtils {
             return null;
         }
     }
-    public static Integer levelHero(Integer totalApoyos){
-        if (totalApoyos == 0 ){
-            return 1;
-        } else if( totalApoyos == 1) {
-            return 2;
-        } else if (totalApoyos == 2) {
-            return 3;
-        } else if (totalApoyos >= 3 && totalApoyos < 6) {
-            return 4;
-        } else if (totalApoyos >= 6 && totalApoyos < 9) {
-            return 5;
-        } else if (totalApoyos >= 9 && totalApoyos < 12) {
-            return 6;
-        } else if (totalApoyos >= 12 && totalApoyos < 16) {
-            return 7;
-        } else if (totalApoyos >= 16 && totalApoyos < 22 ){
-            return 8;
-        } else if (totalApoyos >= 22 && totalApoyos < 30) {
-            return 9;
-        } else {
-            return 10;
-        }
 
-    }
 
     public static void showAlertDialog(final AppCompatActivity activity , String message, String possitiveMessage){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(

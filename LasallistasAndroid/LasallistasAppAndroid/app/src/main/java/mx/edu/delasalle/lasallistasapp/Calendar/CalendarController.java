@@ -1,10 +1,21 @@
 package mx.edu.delasalle.lasallistasapp.Calendar;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import mx.edu.delasalle.lasallistasapp.Models.Cancha;
@@ -12,6 +23,7 @@ import mx.edu.delasalle.lasallistasapp.Models.Deporte;
 import mx.edu.delasalle.lasallistasapp.Models.Equipo;
 import mx.edu.delasalle.lasallistasapp.Models.Partido;
 import mx.edu.delasalle.lasallistasapp.Models.Universidad;
+import mx.edu.delasalle.lasallistasapp.Utilities.ActivitiesUtils;
 import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
 import mx.edu.delasalle.lasallistasapp.Utilities.Validations;
 
@@ -24,88 +36,48 @@ public class CalendarController implements TabLayout.OnTabSelectedListener,Swipe
     CalendarFragment calendarFragment;
     Validations validations;
     public static Integer statusTab=0;
+    List<Partido>partidos;
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference ref = db.collection("/eventos/oct2018/partidos/");
+
     public CalendarController(BaseActivity activity, CalendarFragment calendarFragment){
         this.activity = activity;
         this.calendarFragment = calendarFragment;
         validations = new Validations(activity);
     }
 
-    public void setListToAdapter(List<Partido>lstPartidos, int tipoPartido ){
+    public void setListToAdapter(List<Partido>lstPartidos ){
         calendarFragment.rcvCalendar.setLayoutManager(new LinearLayoutManager(calendarFragment.getContext()));
-        calendarFragment.rcvCalendar.setAdapter(new CalendarAdapter(activity,tipoPartido,lstPartidos));
+        calendarFragment.rcvCalendar.setAdapter(new CalendarAdapter(activity,lstPartidos));
 
     }
     public  void getMatches(Integer typeMatch){
-        //Logica FIREBASE
-        List<Partido>partidos = new ArrayList<>();
-        Cancha cancha1 = new  Cancha();
-        cancha1.setNombre("Cancha Uruguayo");
-        Cancha cancha2 = new  Cancha();
-        cancha2.setNombre("Cancha Rápido");
-        Cancha cancha3 = new  Cancha();
-        cancha3.setNombre("Universum Nostrum");
 
-        Universidad universidad1 = new Universidad();
-        universidad1.setNombre("La salle Bajío");
-        universidad1.setSiglas("BAJ");
-        Universidad universidad2 = new Universidad();
-        universidad2.setNombre("Neza");
-        universidad2.setSiglas("NEZ");
-        Universidad universidad3 = new Universidad();
-        universidad3.setNombre("Cancún");
-        universidad3.setSiglas("CAN");
+        ref.whereEqualTo("TipoPartido", typeMatch)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        partidos = new ArrayList<>();
+                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            Partido partido = documentSnapshot.toObject(Partido.class);
+                            partidos.add(partido);
+                        }
+                        setListToAdapter(partidos);
 
-        Equipo equipo1 = new Equipo();
-        equipo1.setUniversidad(universidad1);
-        Equipo equipo2 = new Equipo();
-        equipo2.setUniversidad(universidad2);
-        Equipo equipo3 = new Equipo();
-        equipo3.setUniversidad(universidad3);
-
-        Deporte deporte1 = new Deporte();
-        deporte1.setNombre("Futbol Rápido");
-        Deporte deporte2 = new Deporte();
-        deporte2.setNombre("Futbol Uruguayo");
-        Deporte deporte3 = new Deporte();
-        deporte3.setNombre("Basquetbol");
-
-        Partido partido = new Partido();
-        partido.setEquipo1(equipo1);
-        partido.setEquipo2(equipo2);
-        partido.setResultado(new String[]{
-                "2","-","1"
-        });
-        partido.setCancha(cancha2);
-        partido.setDeporte(deporte1);
-        partido.setGanador(equipo1);
-        partidos.add(partido);
-
-        partido = new Partido();
-        partido.setEquipo1(equipo1);
-        partido.setEquipo2(equipo2);
-        partido.setResultado(new String[]{
-                "3","-","4"
-        });
-        partido.setCancha(cancha1);
-        partido.setDeporte(deporte2);
-        partido.setGanador(equipo2);
-        partidos.add(partido);
-
-        partido = new Partido();
-        partido.setEquipo1(equipo1);
-        partido.setEquipo2(equipo3);
-        partido.setResultado(new String[]{
-                "93","-","82"
-        });
-        partido.setCancha(cancha3);
-        partido.setDeporte(deporte3);
-        partido.setGanador(equipo3);
-        partidos.add(partido);
-
-        setListToAdapter(partidos,typeMatch);
-
-        activity.hideLoading();
-        calendarFragment.swrListCalendar.setRefreshing(false);
+                        activity.hideLoading();
+                        calendarFragment.swrListCalendar.setRefreshing(false);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.toString();
+                        e.printStackTrace();
+                        ActivitiesUtils.showToat(activity,"ERROR AL CARGAR PARTIDOS");
+                    }
+                });
 
         //setListToAdapter();
     }
@@ -116,7 +88,7 @@ public class CalendarController implements TabLayout.OnTabSelectedListener,Swipe
             statusTab=0;
             if(CalendarAdapter.lstPartidos ==null)
                 getMatches(statusTab);
-            if(CalendarAdapter.lstPartidos.size() >0)
+            else if(CalendarAdapter.lstPartidos.size() >0)
             {
                 CalendarAdapter.lstPartidos.clear();
                 getMatches(statusTab);
@@ -127,7 +99,7 @@ public class CalendarController implements TabLayout.OnTabSelectedListener,Swipe
             statusTab=1;
             if(CalendarAdapter.lstPartidos ==null)
                 getMatches(statusTab);
-            if(CalendarAdapter.lstPartidos.size() >0)
+            else if(CalendarAdapter.lstPartidos.size() >0)
             {
                 CalendarAdapter.lstPartidos.clear();
                 getMatches(statusTab);

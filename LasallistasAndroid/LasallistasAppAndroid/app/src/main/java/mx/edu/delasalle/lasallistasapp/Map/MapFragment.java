@@ -32,12 +32,6 @@ public class MapFragment extends BaseFragment {
 
 
         mapController = new MapController();
-        //SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-        //        .findFragmentById(R.id.mapView);
-        //mapFragment.getMapAsync(mapController);
-//        map.onCreate(savedInstanceState);
-//        map.getMapAsync(mapController);
-
         map.onCreate(savedInstanceState);
         map.getMapAsync(mapController);
         map.onResume();
