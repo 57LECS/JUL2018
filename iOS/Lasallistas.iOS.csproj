@@ -109,6 +109,9 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="[AlertControllers]\" />
+    <Folder Include="Sources\" />
+    <Folder Include="Cells\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -129,9 +132,14 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="[AlertControllers]\AppAlertController.cs" />
-    <Compile Include="CalendarioViewController.cs" />
-    <Compile Include="CalendarioViewController.designer.cs">
+    <Compile Include="Sources\TableCalendarioSource.cs" />
+    <Compile Include="ViewControllers\CalendarioViewController.cs" />
+    <Compile Include="ViewControllers\CalendarioViewController.designer.cs">
       <DependentUpon>CalendarioViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cells\CalendarioPartidoTableCell.cs" />
+    <Compile Include="Cells\CalendarioPartidoTableCell.designer.cs">
+      <DependentUpon>CalendarioPartidoTableCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
