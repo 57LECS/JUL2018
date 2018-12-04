@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using Firebase.Core;
+using Google.Maps;
 using Firebase.CloudFirestore;
 
 namespace Lasallistas.iOS
@@ -11,7 +12,7 @@ namespace Lasallistas.iOS
     public class AppDelegate : UIApplicationDelegate
     {
         // class-level declarations
-
+        const string MapsApiKey = "";
         public override UIWindow Window
         {
             get;
@@ -27,6 +28,7 @@ namespace Lasallistas.iOS
             App.Configure();
 
             dbFirestore = Firestore.SharedInstance;
+            MapServices.ProvideAPIKey(MapsApiKey);
 
             return true;
         }

@@ -97,6 +97,9 @@
     <Reference Include="Firebase.CloudFirestore">
       <HintPath>..\packages\Xamarin.Firebase.iOS.CloudFirestore.0.13.3\lib\Xamarin.iOS10\Firebase.CloudFirestore.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Maps">
+      <HintPath>..\packages\Xamarin.Google.iOS.Maps.2.5.0.1\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -141,6 +144,10 @@
     <Compile Include="Cells\CalendarioPartidoTableCell.designer.cs">
       <DependentUpon>CalendarioPartidoTableCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\MapViewController.cs" />
+    <Compile Include="ViewControllers\MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
@@ -148,4 +155,5 @@
   <Import Project="..\Lasallistas\Lasallistas.projitems" Label="Shared" Condition="Exists('..\Lasallistas\Lasallistas.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.5.0.1\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.5.0.1\build\Xamarin.Google.iOS.Maps.targets')" />
 </Project>

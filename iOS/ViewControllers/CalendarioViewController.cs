@@ -30,6 +30,8 @@ namespace Lasallistas.iOS
             Partido.GetPartidosByDate(DateTime.Now, HandleCallback, true);
             tableCalendario.DataSource = this;
             tableCalendario.Delegate = this;
+
+            //this.NavigationItem.
         }
 
         void HandleQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, Foundation.NSError error)

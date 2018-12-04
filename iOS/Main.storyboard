@@ -12,7 +12,7 @@
         <!--Mapa-->
         <scene sceneID="pEs-mL-UMr">
             <objects>
-                <viewController id="ylP-Bt-RdQ" sceneMemberID="viewController">
+                <viewController id="ylP-Bt-RdQ" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JLA-1b-mA7"/>
                         <viewControllerLayoutGuide type="bottom" id="Um4-SP-706"/>
@@ -23,45 +23,56 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8d-B0-bXA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Ljc-dI-zSN">
-                                        <rect key="frame" x="285" y="160" width="70" height="234"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVF-Vg-5cA">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
-                                                <state key="normal" title="Baños"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhj-QU-1Q6">
-                                                <rect key="frame" x="0.0" y="68" width="70" height="30"/>
-                                                <state key="normal" title="Canchas"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i4-uM-RCJ">
-                                                <rect key="frame" x="0.0" y="136" width="70" height="30"/>
-                                                <state key="normal" title="Cafeterias"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ch-xg-cJi">
-                                                <rect key="frame" x="0.0" y="204" width="70" height="30"/>
-                                                <state key="normal" title="Asistencia"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Ljc-dI-zSN" firstAttribute="centerY" secondItem="W8d-B0-bXA" secondAttribute="centerY" id="d1B-jv-Gyj"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Ljc-dI-zSN" secondAttribute="trailing" constant="12" id="qcg-2R-QDY"/>
-                                </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Ljc-dI-zSN">
+                                <rect key="frame" x="289" y="216.5" width="70" height="234"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVF-Vg-5cA">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                        <state key="normal" title="Baños"/>
+                                        <connections>
+                                            <action selector="btnBañosTouchUpInside:" destination="ylP-Bt-RdQ" eventType="touchUpInside" id="zQk-pr-kRa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhj-QU-1Q6">
+                                        <rect key="frame" x="0.0" y="68" width="70" height="30"/>
+                                        <state key="normal" title="Canchas"/>
+                                        <connections>
+                                            <action selector="btnCanchasTouchUpInside:" destination="ylP-Bt-RdQ" eventType="touchUpInside" id="NBn-9k-jY4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i4-uM-RCJ">
+                                        <rect key="frame" x="0.0" y="136" width="70" height="30"/>
+                                        <state key="normal" title="Cafeterias"/>
+                                        <connections>
+                                            <action selector="btnCafeteriasTouchUpInside:" destination="ylP-Bt-RdQ" eventType="touchUpInside" id="q8D-fm-fbO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ch-xg-cJi">
+                                        <rect key="frame" x="0.0" y="204" width="70" height="30"/>
+                                        <state key="normal" title="Asistencia"/>
+                                        <connections>
+                                            <action selector="btnAsistenciaTouchUpInside:" destination="ylP-Bt-RdQ" eventType="touchUpInside" id="15H-lN-z0n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W8d-B0-bXA" firstAttribute="leading" secondItem="zWT-uj-5BQ" secondAttribute="leading" id="9UD-iO-ukx"/>
                             <constraint firstItem="Um4-SP-706" firstAttribute="top" secondItem="W8d-B0-bXA" secondAttribute="bottom" id="IyV-Lq-ovt"/>
+                            <constraint firstItem="Ljc-dI-zSN" firstAttribute="centerY" secondItem="zWT-uj-5BQ" secondAttribute="centerY" id="SPe-ne-lh6"/>
                             <constraint firstAttribute="trailing" secondItem="W8d-B0-bXA" secondAttribute="trailing" id="qnH-Md-AAC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ljc-dI-zSN" secondAttribute="trailing" id="rp8-wb-A0K"/>
                             <constraint firstItem="W8d-B0-bXA" firstAttribute="top" secondItem="JLA-1b-mA7" secondAttribute="bottom" id="s8y-cT-tZ8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="9b8-gk-cQA"/>
+                    <connections>
+                        <outlet property="mapView" destination="W8d-B0-bXA" id="ScB-ku-y8o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBI-Jh-86e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,7 +249,9 @@
                             <constraint firstItem="Bj6-ty-hL4" firstAttribute="top" secondItem="pTt-Td-GdQ" secondAttribute="bottom" id="vAM-BO-603"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Calendario" id="QR9-oG-W32"/>
+                    <navigationItem key="navigationItem" title="Calendario" id="QR9-oG-W32">
+                        <barButtonItem key="rightBarButtonItem" title="Todos" id="INq-ZM-7Xk"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableCalendario" destination="pTt-Td-GdQ" id="rKq-32-cqy"/>
                     </connections>
