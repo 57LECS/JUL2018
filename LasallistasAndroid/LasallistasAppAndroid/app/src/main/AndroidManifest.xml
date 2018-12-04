@@ -22,9 +22,13 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Second.SecondActivity"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value=""/>
+            android:value="AIzaSyB1Qp4UAW4p_WKZtIiCZN9_-Pinsu0LlCk"/>
     </application>
 
 </manifest>

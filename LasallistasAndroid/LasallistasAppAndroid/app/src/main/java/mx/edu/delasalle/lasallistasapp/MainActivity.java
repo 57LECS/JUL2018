@@ -42,8 +42,6 @@ public class MainActivity extends BaseActivity {
                             case R.id.action_map:
                                 setFragment(new MapFragment(),ActivitiesUtils.MAP);
                                 break;
-                            case R.id.action_medals:
-                                break;
                         }
                         return true;
                     }

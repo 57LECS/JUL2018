@@ -86,24 +86,28 @@ public class CalendarController implements TabLayout.OnTabSelectedListener,Swipe
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab.getPosition()==0){
             statusTab=0;
-            if(CalendarAdapter.lstPartidos ==null)
+
+            if(CalendarAdapter.lstPartidos !=null) {
+                if (CalendarAdapter.lstPartidos.size() > 0)
+                    CalendarAdapter.lstPartidos.clear();
+            }
+            getMatches(statusTab);
+            /*if(CalendarAdapter.lstPartidos ==null)
                 getMatches(statusTab);
             else if(CalendarAdapter.lstPartidos.size() >0)
             {
                 CalendarAdapter.lstPartidos.clear();
                 getMatches(statusTab);
-            }
+            }*/
 
         }
         else {
             statusTab=1;
-            if(CalendarAdapter.lstPartidos ==null)
-                getMatches(statusTab);
-            else if(CalendarAdapter.lstPartidos.size() >0)
-            {
-                CalendarAdapter.lstPartidos.clear();
-                getMatches(statusTab);
+            if(CalendarAdapter.lstPartidos !=null) {
+                if (CalendarAdapter.lstPartidos.size() > 0)
+                    CalendarAdapter.lstPartidos.clear();
             }
+            getMatches(statusTab);
 
         }
     }

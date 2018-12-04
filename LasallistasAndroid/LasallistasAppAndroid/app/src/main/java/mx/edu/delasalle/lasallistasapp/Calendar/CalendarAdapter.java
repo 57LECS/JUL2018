@@ -10,6 +10,10 @@ import android.widget.TextView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -17,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import mx.edu.delasalle.lasallistasapp.Models.Partido;
 import mx.edu.delasalle.lasallistasapp.Second.SecondActivity;
+import mx.edu.delasalle.lasallistasapp.Utilities.ActivitiesUtils;
 import mx.edu.delasalle.lasallistasapp.Utilities.BaseActivity;
 
 import mx.edu.delasalle.lasallistasapp.R;
@@ -48,7 +53,21 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         partido = lstPartidos.get(position);
         holder.partidoActual = partido;
-        holder.txvHour.setText("10:00");
+        //Calendar cal = Calendar.getInstance();
+        Date date = ActivitiesUtils.getDateTimePicker(partido.getFecha());
+       // cal.setTime();
+        //int hours = cal.get(Calendar.HOUR_OF_DAY);
+        String startTime = partido.getFecha();
+        SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date dateValue = input.parse(startTime);
+            holder.txvHour.setText(dateValue.getHours()+":"+dateValue.getMinutes());
+        } catch (ParseException e) {
+            ActivitiesUtils.showToat(activity,"Error añadiendo la hora al partido");
+
+            e.printStackTrace();
+        }
+
         holder.txvPitch.setText(partido.getCancha());
         holder.txvSport.setText(partido.getDeporte());
         if(partido.getTipoPartido() == 0 )

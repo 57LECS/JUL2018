@@ -13,12 +13,6 @@
         android:title="Calendario"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_medals"
-        android:enabled="true"
-        android:icon="@drawable/ic_medal"
-        android:title="Medallero"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/action_map"
         android:enabled="true"
         android:icon="@drawable/ic_location"
