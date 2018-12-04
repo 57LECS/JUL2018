@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Lasallistas.iOS
 {
-    public partial class CalendarioViewController : UIViewController
+    public partial class CalendarioViewController : UIViewController, IUITableViewDataSource, IUITableViewDelegate
     {
         List<Partido> lstPartidos;
 
@@ -28,6 +28,8 @@ namespace Lasallistas.iOS
 
             //Llamado del ejemplo.
             Partido.GetPartidosByDate(DateTime.Now, HandleCallback, true);
+            tableCalendario.DataSource = this;
+            tableCalendario.Delegate = this;
         }
 
         void HandleQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, Foundation.NSError error)
@@ -101,9 +103,6 @@ namespace Lasallistas.iOS
                 //El objeto de Equipo 2.
                 Equipo equipo2 = new Equipo(0, universidad2, deporte, ramasEnum);
 
-
-
-
                 //Resultados.
                 NSArray results = dictPartido["Resultado"] as NSArray;
 
@@ -130,6 +129,7 @@ namespace Lasallistas.iOS
                 lstPartidos.Add(partido);
 
             }
+            tableCalendario.ReloadData();
 
         }
 
@@ -147,6 +147,37 @@ namespace Lasallistas.iOS
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        public nint RowsInSection(UITableView tableView, nint section)
+        {
+            return lstPartidos.Count > 0 ? lstPartidos.Count : 0;
+        }
+
+        [Export("numberOfSectionsInTableView:")]
+        public nint NumberOfSections(UITableView tableView)
+        {
+            return 1;
+        }
+
+        [Export("tableView:heightForRowAtIndexPath:")]
+        public nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+        {
+            return 100;
+        }
+
+        public UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+        {
+            var cell = tableView.DequeueReusableCell(CalendarioPartidoTableCell.Key, indexPath) as CalendarioPartidoTableCell;
+
+            cell.EquipoLocal = lstPartidos[indexPath.Row].Equipo1.Universidad.Nombre;
+            cell.EquipoVisitante = lstPartidos[indexPath.Row].Equipo2.Universidad.Nombre;
+            cell.Deporte = lstPartidos[indexPath.Row].Deporte.Nombre;
+            cell.Hora = "";
+            cell.Lugar = lstPartidos[indexPath.Row].Cancha.Nombre;
+
+            return cell;
+
         }
     }
 }

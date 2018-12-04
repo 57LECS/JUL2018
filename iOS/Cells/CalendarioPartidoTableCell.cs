@@ -9,7 +9,40 @@ namespace Lasallistas.iOS
 {
 	public partial class CalendarioPartidoTableCell : UITableViewCell
 	{
-		public CalendarioPartidoTableCell (IntPtr handle) : base (handle)
+        public static readonly NSString Key = new NSString("calendarioReusableCell");
+
+        public String EquipoLocal
+        {
+            get => lblEquipoLoc.Text;
+            set => lblEquipoLoc.Text = value;
+        }
+
+        public String EquipoVisitante
+        {
+            get => lblEquipoVis.Text;
+            set => lblEquipoVis.Text = value;
+        }
+
+        public String Hora
+        {
+            get => lblHora.Text;
+            set => lblHora.Text = value;
+        }
+
+        public String Lugar
+        {
+            get => lblLugar.Text;
+            set => lblLugar.Text = value;
+        }
+
+        public String Deporte
+        {
+            get => lblDeporte.Text;
+            set => lblDeporte.Text = value;
+        }
+
+
+        public CalendarioPartidoTableCell (IntPtr handle) : base (handle)
 		{
 		}
 	}

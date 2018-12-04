@@ -12,9 +12,47 @@ namespace Lasallistas.iOS
 	[Register ("CalendarioPartidoTableCell")]
 	partial class CalendarioPartidoTableCell
 	{
+		[Outlet]
+		UIKit.UILabel lblDeporte { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lblEquipoLoc { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lblEquipoVis { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lblHora { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lblLugar { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (lblEquipoLoc != null) {
+				lblEquipoLoc.Dispose ();
+				lblEquipoLoc = null;
+			}
+
+			if (lblEquipoVis != null) {
+				lblEquipoVis.Dispose ();
+				lblEquipoVis = null;
+			}
+
+			if (lblDeporte != null) {
+				lblDeporte.Dispose ();
+				lblDeporte = null;
+			}
+
+			if (lblHora != null) {
+				lblHora.Dispose ();
+				lblHora = null;
+			}
+
+			if (lblLugar != null) {
+				lblLugar.Dispose ();
+				lblLugar = null;
+			}
 		}
 	}
 }

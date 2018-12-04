@@ -45,10 +45,10 @@ namespace Lasallistas.iOS.Sources
 
         public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell(HistorialReservacionCell.Key) as HistorialReservacionCell;
+            /*var cell = tableView.DequeueReusableCell(CalendarioPartidoTableCell.Key) as CalendarioPartidoTableCell;
             if (cell == null)
             {
-                cell = new HistorialReservacionCell();
+                cell = new CalendarioPartidoTableCell();
                 var views = NSBundle.MainBundle.LoadNib(HistorialReservacionCell.Key, cell, null);
                 cell = Runtime.GetNSObject(views.ValueAt(0)) as HistorialReservacionCell;
             }
@@ -59,12 +59,9 @@ namespace Lasallistas.iOS.Sources
             cell.Hora2 = reservacion.FechaHoraSalida.ToLocalTime().ToString("HH:mm");
             cell.Nombre = reservacion.Lugar?.Nombre;
             cell.Costo = reservacion.SolicitudReservacion?.TarifaTotal.ToString("C");
-            return cell;
+            return cell;*/
+            return null;
         }
 
-        public override nint RowsInSection(UITableView tableview, nint section)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
