@@ -16,7 +16,7 @@ class NewSchool extends React.Component {
         this.state = {
           schoolName:"",
           shortName:"",
-          Address:""
+          address:""
         };
     
         //bindings
