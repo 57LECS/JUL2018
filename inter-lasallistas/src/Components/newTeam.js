@@ -16,7 +16,7 @@ class NewTeam extends React.Component {
           teams:[],
           teamName: this.props.x.nombre,
           branch:"",
-          university:this.props.escuela,
+          university:this.props.x.escuela,
           series:"Serie A"
     };
 
@@ -29,9 +29,6 @@ class NewTeam extends React.Component {
     this.handleBranchCombo = this.handleBranchCombo.bind(this);
     this.handleTeamInput = this.handleTeamInput.bind(this);
     
-
-
-        
 }
 componentDidMount()
 {
@@ -119,7 +116,6 @@ loadBranchesCombo()
       arr =  doc.data().ramas;
       that.state["branch"] = arr[0]
       that.setState({branches:arr});
-      that.setState({university:this.props.x.escuela})
       });
   
   });

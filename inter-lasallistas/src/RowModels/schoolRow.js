@@ -58,8 +58,7 @@ class SchoolRow extends React.Component {
                 <td className="text-center">{this.props.x.nombreCorto}</td>
                 <td className="text-center">{this.props.x.direccion}</td>
                 <td className="text-center">
-                    <div>
-                    <Button  color={"primary"}>Editar</Button> {' '}
+                <div>
                     <Button  color={"danger"} onClick={this.showConfirmDeleteModal}> Borrar</Button>
                     </div>
                     <Modal size={"sm"} isOpen={this.state["showModal"]}>

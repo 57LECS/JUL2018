@@ -9,7 +9,6 @@ import Navigation from './Screens/Navigation';
 import TeamScreen from './Screens/teamScreen';
 import CalendarScreen from './Screens/calendarScreen';
 import CourtScreen from './Screens/courtScreen';
-import CalendarMenuScreen from './Screens/calendarMenuScreen';
 import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
 import SchoolScreen from './Screens/schoolScreen';
@@ -124,9 +123,8 @@ class App extends Component {
               <Route path="/newSport" component={SportScreen} />
               <Route path="/results/:id" component={ResultScreen} />
               <Route path="/teams/:id" component={TeamScreen} />
-              <Route path="/calendar/get" component={CalendarScreen} />
+              <Route path="/calendar" component={CalendarScreen} />
               <Route path="/court" component={CourtScreen} />
-              <Route path="/calendar" component={CalendarMenuScreen} />
               <Route path="/school" component={SchoolScreen} />
               <Route component={error} />
             </Switch>
