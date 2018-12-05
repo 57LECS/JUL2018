@@ -140,11 +140,11 @@ class App extends Component {
     }
     else {
       return (
-        <Container className="App" style={{ marginTop: "75px" }}>
+        <Container className="App" style={{ marginTop: "105px" }}>
           <Form className="form">
             <Row>
               <Col md="4"></Col>
-              <Col>
+              <Col className="border" style={{padding: '50px'}} >
                 <h2 style={{textAlign:"center"}}>Iniciar Sesión</h2><br/>
                 <FormGroup>
                   <Label>Correo: </Label>

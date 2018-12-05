@@ -16,7 +16,7 @@ class HomeScreen extends React.Component {
         <Row>
           <Col sm="8">
             <Row>
-            <Col sm="6">
+              <Col sm="6">
                 <Link to="/newSport" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
@@ -24,6 +24,7 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
+                <br />
               </Col>
               <br />
               <Col sm="6">
@@ -34,22 +35,23 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
+                <br/>
               </Col>
-           
+
             </Row>
-            <br/>
+
             <Row>
-            <Col sm="4">
-              <Link to="/sports/teams" className="thumbnail-red">
-                <div className="card text-center thumb"  >
-                  <div className="card-body"></div>
-                  <div className="card-body"><h5>Equipos</h5></div>
-                  <div className="card-body"></div>
-                </div>
-              </Link>
-            </Col>
-     
-            <Col sm="4">
+              <Col sm="4">
+                <Link to="/sports/teams" className="thumbnail-red">
+                  <div className="card text-center thumb"  >
+                    <div className="card-body"></div>
+                    <div className="card-body"><h5>Equipos</h5></div>
+                    <div className="card-body"></div>
+                  </div>
+                </Link>
+                <br />
+              </Col>
+              <Col sm="4">
                 <Link to="/calendar" className="thumbnail-red">
                   <div className="card text-center thumb" >
                     <div className="card-body"></div>
@@ -57,18 +59,19 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
+                <br/>
               </Col>
-             
-            <br />
-            <Col sm="4">
-              <Link to="/sports/results" className="thumbnail-red" >
-                <div className="card text-center thumb" >
-                  <div className="card-body"></div>
-                  <div className="card-body"><h5>Resultados</h5></div>
-                  <div className="card-body"></div>
-                </div>
-              </Link>
-            </Col>
+
+              <Col sm="4">
+                <Link to="/sports/results" className="thumbnail-red" >
+                  <div className="card text-center thumb" >
+                    <div className="card-body"></div>
+                    <div className="card-body"><h5>Resultados</h5></div>
+                    <div className="card-body"></div>
+                  </div>
+                </Link>
+                <br/>
+              </Col>
 
             </Row>
 

@@ -5,7 +5,7 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: '#343a40' }}>
+            <div style={{ backgroundColor: '#963131' }}>
                 <Container>
                     <br />
                     <Row>
