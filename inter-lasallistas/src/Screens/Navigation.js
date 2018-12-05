@@ -39,7 +39,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" light expand="md">
+        <Navbar style={{backgroundColor: '#2359af'}} light expand="md">
           <NavbarBrand href="/"><img src="../images/redsalle.png" alt="logo" style={{ height: '50px' }} /></NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>

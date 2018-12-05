@@ -13,6 +13,7 @@ import EventScreen from './Screens/eventScreenMenu';
 import Footer from './Screens/Footer';
 import SchoolScreen from './Screens/schoolScreen';
 import SportScreen from './Screens/sportScreen';
+import Cognitive from './Screens/cognitive';
 import './index.css';
 import './lasallistas.css';
 
@@ -126,6 +127,7 @@ class App extends Component {
               <Route path="/calendar" component={CalendarScreen} />
               <Route path="/court" component={CourtScreen} />
               <Route path="/school" component={SchoolScreen} />
+              <Route path="/machineLearning" component={Cognitive} />
               <Route component={error} />
             </Switch>
           </BrowserRouter>

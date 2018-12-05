@@ -11,7 +11,7 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container >
         <br />
         <Row>
           <Col sm="8">
@@ -35,7 +35,7 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
-                <br/>
+                <br />
               </Col>
 
             </Row>
@@ -59,7 +59,7 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
-                <br/>
+                <br />
               </Col>
 
               <Col sm="4">
@@ -70,9 +70,19 @@ class HomeScreen extends React.Component {
                     <div className="card-body"></div>
                   </div>
                 </Link>
-                <br/>
+                <br />
               </Col>
 
+              <Col sm="12">
+                <Link to="/machineLearning" className="thumbnail-red" >
+                  <div className="card text-center thumb" >
+                    <div className="card-body"></div>
+                    <div className="card-body"><h5>Machine Learning Microsoft</h5></div>
+                    <div className="card-body"></div>
+                  </div>
+                </Link>
+                <br />
+              </Col>
             </Row>
 
           </Col>

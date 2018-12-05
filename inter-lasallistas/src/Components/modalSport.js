@@ -126,7 +126,7 @@ class ModalSport extends React.Component {
                 <div>
                     <Button style={{ marginBottom: "10px" }} onClick={this.toggle} color="success"><i className="fas fa-plus"></i> Agregar deporte</Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <ModalHeader toggle={this.toggle} close={closeBtn}>Agregar Deporte</ModalHeader>
+                        <ModalHeader className="bg-primary text-white" toggle={this.toggle} close={closeBtn}>Agregar Deporte</ModalHeader>
                         <ModalBody>
                             <Form>
                                 <FormGroup>
@@ -144,7 +144,7 @@ class ModalSport extends React.Component {
                             </Form>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={this.guarda}>Agregar</Button>{' '}
+                            <Button color="primary" onClick={this.guarda}>Agregar</Button>{' '}
                             <Button color="danger" onClick={this.toggle}>Cancelar</Button>
                         </ModalFooter>
                     </Modal>
