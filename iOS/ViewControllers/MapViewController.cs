@@ -3,29 +3,34 @@
 using System;
 using CoreGraphics;
 using Foundation;
-using Google.Maps;
+//using Google.Maps;
 using UIKit;
+using Mapbox;
+using CoreLocation;
 
 namespace Lasallistas.iOS
 {
 	public partial class MapViewController : UIViewController
 	{
 
-        MapView _mapView;
+        //MapView _mapView;
 		public MapViewController (IntPtr handle) : base (handle)
 		{
 		}
 
-        public override void LoadView()
+        public override void ViewDidLoad()
         {
-            base.LoadView();
+            base.ViewDidLoad();
 
-            var camera = CameraPosition.FromCamera(latitude: 37.79,
-                                            longitude: -122.40,
-                                            zoom: 6);
-            _mapView = MapView.FromCamera(CGRect.Empty, camera);
-            _mapView.MyLocationEnabled = true;
-            mapView = _mapView;
+            var url = new NSUrl("mapbox://styles/mapbox/streets-v10");
+
+            var mapViewView = new MGLMapView(View.Bounds,url);
+            //mapViewView.StyleURL = MGLStyle.DarkStyleURL;
+            mapViewView.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
+            mapViewView.SetCenterCoordinate(new CLLocationCoordinate2D(21.152212, -101.711294), 9, false);
+            View.AddSubview(mapViewView);
+            mapView.Hidden = true;
+            
         }
     }
 }

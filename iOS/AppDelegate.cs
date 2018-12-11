@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using Firebase.Core;
-using Google.Maps;
+//using Google.Maps;
 using Firebase.CloudFirestore;
 
 namespace Lasallistas.iOS
@@ -28,7 +28,7 @@ namespace Lasallistas.iOS
             App.Configure();
 
             dbFirestore = Firestore.SharedInstance;
-            MapServices.ProvideAPIKey(MapsApiKey);
+            //MapServices.ProvideAPIKey(MapsApiKey);
 
             return true;
         }

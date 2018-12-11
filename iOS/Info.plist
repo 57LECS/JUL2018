@@ -44,5 +44,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiZWRnYXJkby1jcyIsImEiOiJjam80ODBkbjAxNTI2M3BrN3N3czhibngwIn0.VdaWGT_gUaK4GxVnTLP5Rw</string>
 </dict>
 </plist>
