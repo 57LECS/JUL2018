@@ -168,6 +168,13 @@ namespace Lasallistas.iOS
             return 100;
         }
 
+
+        /// <summary>
+        /// Gets the cell to show in the table view.
+        /// </summary>
+        /// <returns>The cell.</returns>
+        /// <param name="tableView">Table view.</param>
+        /// <param name="indexPath">Index path.</param>
         public UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell(CalendarioPartidoTableCell.Key, indexPath) as CalendarioPartidoTableCell;
