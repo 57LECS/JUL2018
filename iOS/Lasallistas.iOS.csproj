@@ -125,6 +125,7 @@
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Resources\Main~.storyboard" />
     <InterfaceDefinition Include="Resources\CalendarioViewController.xib" />
+    <InterfaceDefinition Include="EventPickerDialog.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
