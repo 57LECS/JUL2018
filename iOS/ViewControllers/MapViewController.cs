@@ -15,10 +15,20 @@ namespace Lasallistas.iOS
 	public partial class MapViewController : UIViewController, IMGLMapViewDelegate
     {
         MGLMapView mGLMap;
+        bool isCanchasShowing=true;
+        bool isBaniosShowing=true;
+        bool isAsistenciasShowing=true;
+        bool isCafeteriasShowing=true;
+
         List<Cancha> Canchas;
         List<Lugares> Banios;
         List<Lugares> Asistencias;
         List<Lugares> Cafeterias;
+
+        List<MGLPointAnnotation> CanchasMarkers;
+        List<MGLPointAnnotation> BaniosMarkers;
+        List<MGLPointAnnotation> AsistenciasMarkers;
+        List<MGLPointAnnotation> CafeteriasMarkers;
 
 
         public MapViewController (IntPtr handle) : base (handle)
@@ -30,15 +40,40 @@ namespace Lasallistas.iOS
             base.ViewDidLoad();
 
 
-            var document = AppDelegate.dbFirestore.GetCollection("eventos/oct2018/canchas");
+            var documentAsistencia = AppDelegate.dbFirestore.GetCollection("eventos/oct2018/canchas");
+            var documentBanio = AppDelegate.dbFirestore.GetCollection("eventos/oct2018/canchas");
+            var documentCancha = AppDelegate.dbFirestore.GetCollection("eventos/oct2018/canchas");
+            var documentCafe = AppDelegate.dbFirestore.GetCollection("eventos/oct2018/canchas");
             MapConfiguration();
-            document.GetDocuments(HandleQuerySnapshot);
+            documentAsistencia.GetDocuments(AsistenciaQuerySnapshotHandler);
+            documentCancha.GetDocuments(BanioQuerySnapshotHandler);
+            documentBanio.GetDocuments(AsistenciaQuerySnapshotHandler);
+            documentCafe.GetDocuments(CafeteriaQuerySnapshotHandler);
 
         }
 
         partial void btnAsistenciaTouchUpInside(NSObject sender)
         {
+            isAsistenciasShowing = !isAsistenciasShowing;
+            PutMapMarkers(1);
+        }
 
+        partial void btnBañosTouchUpInside(NSObject sender)
+        {
+            isBaniosShowing = !isBaniosShowing;
+            PutMapMarkers(2);
+        }
+
+        partial void btnCanchasTouchUpInside(NSObject sender)
+        {
+            isCanchasShowing = !isCanchasShowing;
+            PutMapMarkers(3);
+        }
+
+        partial void btnCafeteriasTouchUpInside(NSObject sender)
+        {
+            isCafeteriasShowing = !isCafeteriasShowing;
+            PutMapMarkers(4);
         }
 
         void MapConfiguration()
@@ -54,7 +89,66 @@ namespace Lasallistas.iOS
         }
 
 
-        void HandleQuerySnapshot(Firebase.CloudFirestore.QuerySnapshot snapshot, NSError error)
+        /// <summary>
+        /// Puts the map markers.
+        /// Sender 5 to clear map and 6 to show all markers
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        void PutMapMarkers(int sender)
+        {
+            switch (sender)
+            {
+                case 1:
+                    if (isAsistenciasShowing)
+                        mGLMap.AddAnnotations(AsistenciasMarkers.ToArray());
+                    else
+                        mGLMap.RemoveAnnotations(AsistenciasMarkers.ToArray());
+                    break;
+
+                case 2:
+                    if (isBaniosShowing)
+                        mGLMap.AddAnnotations(BaniosMarkers.ToArray());
+                    else
+                        mGLMap.RemoveAnnotations(BaniosMarkers.ToArray());
+                    break;
+
+                case 3:
+                    if (isCanchasShowing)
+                        mGLMap.AddAnnotations(CanchasMarkers.ToArray());
+                    else
+                        mGLMap.RemoveAnnotations(CanchasMarkers.ToArray());
+                    break;
+
+                case 4:
+                    if (isCafeteriasShowing)
+                        mGLMap.AddAnnotations(CafeteriasMarkers.ToArray());
+                    else
+                        mGLMap.RemoveAnnotations(CafeteriasMarkers.ToArray());
+                    break;
+
+                case 5:
+                    mGLMap.RemoveAnnotations(AsistenciasMarkers.ToArray());
+                    mGLMap.RemoveAnnotations(BaniosMarkers.ToArray());
+                    mGLMap.RemoveAnnotations(CanchasMarkers.ToArray());
+                    mGLMap.RemoveAnnotations(CafeteriasMarkers.ToArray());
+                    break;
+
+                default:
+                    PutMapMarkers(5);
+                    mGLMap.AddAnnotations(AsistenciasMarkers.ToArray());
+                    mGLMap.AddAnnotations(BaniosMarkers.ToArray());
+                    mGLMap.AddAnnotations(CanchasMarkers.ToArray());
+                    mGLMap.AddAnnotations(CafeteriasMarkers.ToArray());
+                    isAsistenciasShowing = isBaniosShowing = isCanchasShowing = isCafeteriasShowing = true;
+                    break;
+            }
+
+
+
+
+        }
+
+        void CanchaQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, NSError error)
         {
             if (error != null)
             {
@@ -82,8 +176,23 @@ namespace Lasallistas.iOS
                 };
 
                 Canchas.Add(cancha);
-                mGLMap.AddAnnotation(anotation);
+                CanchasMarkers.Add(anotation);
             } 
+
+        }
+
+        void AsistenciaQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, NSError error)
+        {
+        
+        }
+
+        void BanioQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, NSError error)
+        {
+
+        }
+
+        void CafeteriaQuerySnapshotHandler(Firebase.CloudFirestore.QuerySnapshot snapshot, NSError error)
+        {
 
         }
 

@@ -49,10 +49,8 @@ namespace Lasallistas.iOS
                 //El objeto de Cancha.
                 Cancha cancha = new Cancha();
 
-
                 long canchaId; 
                 if (!long.TryParse($"{dictPartido["cancha_id"]}", out canchaId)) {
-
                     canchaId = 0;
                 }
 
